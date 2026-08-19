@@ -3,99 +3,461 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Decants de Perfumes Exclusivos</title>
+  <title>Catálogo de Decants | Perfumes Exclusivos</title>
   <style>
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #151e2e;
+      --card-border: #233249;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --price-tag: #4ade80;
+      --wsp-color: #22c55e;
+      --wsp-hover: #16a34a;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      padding: 24px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      line-height: 1.5;
     }
+
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+      max-width: 700px;
+    }
+
     h1 {
-      margin-bottom: 24px;
-      font-weight: 600;
+      font-size: 2rem;
+      font-weight: 700;
       letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      color: #ffffff;
     }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 9999px;
+      border: 1px solid var(--card-border);
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent);
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
       width: 100%;
-      max-width: 1000px;
+      max-width: 1200px;
     }
+
     .card {
-      background: #1e293b;
+      background: var(--card-bg);
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-      border: 1px solid #334155;
+      border: 1px solid var(--card-border);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.15s ease, border-color 0.15s ease;
     }
-    .card h3 {
-      margin: 0 0 8px 0;
-      color: #38bdf8;
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #3b82f6;
     }
+
     .badge {
       display: inline-block;
-      background: #334155;
-      color: #94a3b8;
-      font-size: 0.8rem;
+      background: #1e293b;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
       padding: 4px 8px;
-      border-radius: 4px;
-      margin-bottom: 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      width: fit-content;
     }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
     .notes {
-      font-size: 0.9rem;
-      color: #cbd5e1;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
       line-height: 1.4;
-      margin-bottom: 16px;
     }
-    .prices {
-      font-weight: bold;
+
+    .prices-box {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 10px 12px;
       margin-bottom: 16px;
-      color: #4ade80;
+      display: flex;
+      justify-content: space-around;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
+
+    .price-item {
+      text-align: center;
+    }
+
+    .price-item .size {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .price-item .amount {
+      font-weight: 700;
+      color: var(--price-tag);
+      font-size: 1rem;
+    }
+
     .btn-wsp {
       display: block;
       text-align: center;
-      background-color: #22c55e;
+      background-color: var(--wsp-color);
       color: #ffffff;
       text-decoration: none;
-      padding: 10px 16px;
+      padding: 10px 14px;
       border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.2s ease;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease;
     }
+
     .btn-wsp:hover {
-      background-color: #16a34a;
+      background-color: var(--wsp-hover);
     }
   </style>
 </head>
 <body>
 
-  <h1>Catálogo de Decants</h1>
+  <header>
+    <h1>Decants de Perfumes</h1>
+    <p class="subtitle">Fraccionados 100% originales en atomizadores de vidrio de 5 ml y 10 ml.</p>
+  </header>
 
-  <div class="grid">
-    <!-- Tarjeta de Producto -->
-    <div class="card">
-      <div>
-        <span class="badge">Nicho / Oriental</span>
-        <h3>Nombre del Perfume</h3>
-        <p class="notes"><strong>Notas:</strong> Piña, Grosellas negras, Cedro, Musgo de roble.</p>
-        <p class="prices">3ml: $X | 5ml: $X | 10ml: $X</p>
-      </div>
-      <!-- Reemplaza NUMERODETELEFONO por tu número con código de país (ej. 549261XXXXXXX) -->
-      <a class="btn-wsp" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Nombre%20del%20Perfume" target="_blank">
-        Pedir por WhatsApp
-      </a>
-    </div>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Buscar por perfume, marca o notas..." onkeyup="filterCards()">
   </div>
 
+  <div class="grid" id="perfumeGrid">
+
+    <!-- 1. Lattafa The Kingdom -->
+    <div class="card" data-title="Lattafa The Kingdom Oriental Vainilla Menta Lavanda">
+      <div>
+        <span class="badge">Árabe / Oriental</span>
+        <h3>Lattafa The Kingdom</h3>
+        <p class="notes"><strong>Notas:</strong> Lavanda, Menta, Salvia, Vainilla, Tabaco y Haba Tonka.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Lattafa%20The%20Kingdom">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 2. Lattafa Qaed Al Fursan -->
+    <div class="card" data-title="Lattafa Qaed Al Fursan Piña Amaderado Dulce">
+      <div>
+        <span class="badge">Árabe / Frutal</span>
+        <h3>Lattafa Qaed Al Fursan</h3>
+        <p class="notes"><strong>Notas:</strong> Piña dulce jugosa, Azafrán, Jazmín, Bálsamo de abeto, Ámbar y Cedro.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Lattafa%20Qaed%20Al%20Fursan">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 3. Lattafa Ramz Silver -->
+    <div class="card" data-title="Lattafa Ramz Silver Dulce Vainilla Pera Lavanda">
+      <div>
+        <span class="badge">Árabe / Gourmand</span>
+        <h3>Lattafa Ramz Silver</h3>
+        <p class="notes"><strong>Notas:</strong> Pera, Lavanda, Bergamota, Menta, Vainilla, Cardamomo y Pachulí.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Lattafa%20Ramz%20Silver">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 4. Lattafa Sheikh Al Shuyukh Supreme -->
+    <div class="card" data-title="Lattafa Sheikh Al Shuyukh Supreme Final Edition Especiado Amaderado">
+      <div>
+        <span class="badge">Árabe / Aromático</span>
+        <h3>Lattafa Sheikh Al Shuyukh Supreme</h3>
+        <p class="notes"><strong>Notas:</strong> Lavanda, Salvia, Manzana verde, Romero, Cuero y Cedro.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Lattafa%20Sheikh%20Al%20Shuyukh%20Supreme">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 5. Lattafa Hayaati -->
+    <div class="card" data-title="Lattafa Hayaati Marino Frutal Fresco Manzana">
+      <div>
+        <span class="badge">Árabe / Versátil</span>
+        <h3>Lattafa Hayaati</h3>
+        <p class="notes"><strong>Notas:</strong> Manzana, Bergamota, Canela, Notas amaderadas, Vainilla y Almizcle.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Lattafa%20Hayaati">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 6. Afnan 9 AM Dive -->
+    <div class="card" data-title="Afnan 9 AM Dive Acuatico Fresco Menta Citrico">
+      <div>
+        <span class="badge">Fresco / Acuático</span>
+        <h3>Afnan 9 AM Dive</h3>
+        <p class="notes"><strong>Notas:</strong> Menta, Limón, Grosellas negras, Manzana, Incienso y Cedro.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Afnan%209%20AM%20Dive">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 7. Rave Now (Lattafa) -->
+    <div class="card" data-title="Rave Now Lattafa Piña Frutal Intenso">
+      <div>
+        <span class="badge">Frutal Intenso</span>
+        <h3>Rave Now</h3>
+        <p class="notes"><strong>Notas:</strong> Piña madura, Grosellas negras, Bergamota, Manzana, Pachulí y Vainilla.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Rave%20Now">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 8. Armaf Odyssey Limoni Fresh -->
+    <div class="card" data-title="Armaf Odyssey Limoni Fresh Citrico Limon Jengibre">
+      <div>
+        <span class="badge">Cítrico / Fresco</span>
+        <h3>Armaf Odyssey Limoni Fresh</h3>
+        <p class="notes"><strong>Notas:</strong> Limón, Bergamota, Mandarina, Jengibre, Notas marinas y Ámbar.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Armaf%20Odyssey%20Limoni%20Fresh">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 9. Maison Alhambra Galactic Men Intense -->
+    <div class="card" data-title="Maison Alhambra Galactic Men Intense Tabaco Miel Vainilla Cacao">
+      <div>
+        <span class="badge">Oriental / Cálido</span>
+        <h3>Maison Alhambra Galactic Men</h3>
+        <p class="notes"><strong>Notas:</strong> Tabaco, Miel, Cacao, Vainilla, Pachulí y Sándalo.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Maison%20Alhambra%20Galactic%20Men">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 10. Nautica Voyage -->
+    <div class="card" data-title="Nautica Voyage Acuatico Manzana Verde Marino">
+      <div>
+        <span class="badge">Fresco Diario</span>
+        <h3>Nautica Voyage</h3>
+        <p class="notes"><strong>Notas:</strong> Manzana verde, Hojas verdes, Loto, Mimosa, Almizcle y Cedro.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Nautica%20Voyage">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 11. Antonio Banderas Blue Seduction -->
+    <div class="card" data-title="Antonio Banderas Blue Seduction Acuatico Melon Citrico">
+      <div>
+        <span class="badge">Cítrico / Acuático</span>
+        <h3>Antonio Banderas Blue Seduction</h3>
+        <p class="notes"><strong>Notas:</strong> Melón, Bergamota, Menta, Grosellas, Capuchino y Notas marinas.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Blue%20Seduction">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 12. Antonio Banderas King of Seduction Absolute -->
+    <div class="card" data-title="Antonio Banderas King of Seduction Absolute Marino Pomelo Cuero">
+      <div>
+        <span class="badge">Aromático Marino</span>
+        <h3>King of Seduction Absolute</h3>
+        <p class="notes"><strong>Notas:</strong> Pomelo, Toronja, Notas marinas, Cardamomo, Lavanda y Cuero.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20King%20of%20Seduction%20Absolute">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 13. Antonio Banderas King of Seduction Summerland -->
+    <div class="card" data-title="Antonio Banderas King of Seduction Summerland Frutal Fresco">
+      <div>
+        <span class="badge">Verano / Frutal</span>
+        <h3>King of Seduction Summerland</h3>
+        <p class="notes"><strong>Notas:</strong> Piña, Melón, Bergamota, Notas oceánicas, Cedro y Ámbar.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20King%20of%20Seduction%20Summerland">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 14. Antonio Banderas The Golden Secret -->
+    <div class="card" data-title="Antonio Banderas The Golden Secret Cuero Manzana Especiado">
+      <div>
+        <span class="badge">Especiado Cálido</span>
+        <h3>The Golden Secret</h3>
+        <p class="notes"><strong>Notas:</strong> Manzana verde, Menta, Nuez moscada, Pimienta, Cuero y Cedro.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20The%20Golden%20Secret">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 15. Natura Homem Tato -->
+    <div class="card" data-title="Natura Homem Tato Cuero Amaderado Cardamomo">
+      <div>
+        <span class="badge">Amaderado Intenso</span>
+        <h3>Natura Homem Tato</h3>
+        <p class="notes"><strong>Notas:</strong> Cardamomo, Pimienta negra, Iris, Cuero, Sándalo y Cumarú.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Natura%20Homem%20Tato">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- 16. Kenzo Homme EDP Intense -->
+    <div class="card" data-title="Kenzo Homme EDP Intense Marino Amaderado Higo">
+      <div>
+        <span class="badge">Acuático Amaderado</span>
+        <h3>Kenzo Homme EDP Intense</h3>
+        <p class="notes"><strong>Notas:</strong> Notas marinas, Pimienta rosa, Madera de higuera, Vetiver y Madera de Akigala.</p>
+      </div>
+      <div>
+        <div class="prices-box">
+          <div class="price-item"><span class="size">5 ml</span><span class="amount">$X.XXX</span></div>
+          <div class="price-item"><span class="size">10 ml</span><span class="amount">$X.XXX</span></div>
+        </div>
+        <a class="btn-wsp" target="_blank" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Kenzo%20Homme%20Intense">Pedir por WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function filterCards() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        if (title.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
 </body>
-</html>
+  </html>
+  
