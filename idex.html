@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decants de Perfumes Exclusivos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 24px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h3 {
+      margin: 0 0 8px 0;
+      color: #38bdf8;
+    }
+    .badge {
+      display: inline-block;
+      background: #334155;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .notes {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .prices {
+      font-weight: bold;
+      margin-bottom: 16px;
+      color: #4ade80;
+    }
+    .btn-wsp {
+      display: block;
+      text-align: center;
+      background-color: #22c55e;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.2s ease;
+    }
+    .btn-wsp:hover {
+      background-color: #16a34a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Catálogo de Decants</h1>
+
+  <div class="grid">
+    <!-- Tarjeta de Producto -->
+    <div class="card">
+      <div>
+        <span class="badge">Nicho / Oriental</span>
+        <h3>Nombre del Perfume</h3>
+        <p class="notes"><strong>Notas:</strong> Piña, Grosellas negras, Cedro, Musgo de roble.</p>
+        <p class="prices">3ml: $X | 5ml: $X | 10ml: $X</p>
+      </div>
+      <!-- Reemplaza NUMERODETELEFONO por tu número con código de país (ej. 549261XXXXXXX) -->
+      <a class="btn-wsp" href="https://wa.me/NUMERODETELEFONO?text=Hola!%20Quiero%20pedir%20un%20decant%20de%20Nombre%20del%20Perfume" target="_blank">
+        Pedir por WhatsApp
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
