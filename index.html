@@ -12,27 +12,28 @@
 
   <style>
     :root {
-      --bg-base: #06070a;
-      --bg-card: #0d111a;
-      --border-card: #1c2333;
-      --border-card-hover: rgba(212, 175, 55, 0.45);
+      --bg-base: #f8f6f2;
+      --bg-card: #ffffff;
+      --border-card: #e6e0d4;
+      --border-card-hover: #c59b3f;
       
-      --gold-primary: #d4af37;
-      --gold-light: #f5e6a3;
-      --gold-dark: #947620;
-      --gold-glow: rgba(212, 175, 55, 0.12);
+      --gold-primary: #9e7428;
+      --gold-dark: #6e5018;
+      --gold-soft: #fbf7ee;
+      --gold-border: rgba(197, 155, 63, 0.4);
+      --gold-glow: rgba(197, 155, 63, 0.15);
       
-      --text-main: #f8fafc;
-      --text-muted: #8b9bb4;
-      --text-subtle: #57657a;
+      --text-main: #1c1917;
+      --text-muted: #57534e;
+      --text-subtle: #78716c;
       
-      --price-color: #f5e6a3;
-      --wsp-color: #22c55e;
-      --wsp-hover: #16a34a;
+      --price-color: #15803d; /* Verde esmeralda elegante para el precio */
+      --wsp-color: #16a34a;
+      --wsp-hover: #15803d;
       
-      --chip-bg: #111622;
-      --chip-border: #1e2638;
-      --chip-active: #d4af37;
+      --chip-bg: #ece7dc;
+      --chip-border: #ded7c8;
+      --chip-active: #9e7428;
     }
 
     * {
@@ -44,12 +45,13 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-base);
+      /* Luz cálida tipo boutique de alta gama */
       background-image: 
-        radial-gradient(circle at 50% -100px, rgba(212, 175, 55, 0.14) 0%, transparent 55%),
-        radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.04) 0%, transparent 40%);
+        radial-gradient(circle at 50% -80px, rgba(197, 155, 63, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 90% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 45%);
       background-repeat: no-repeat;
       color: var(--text-main);
-      padding: 40px 16px 80px;
+      padding: 40px 16px 120px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -70,14 +72,14 @@
       font-size: 0.72rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--gold-light);
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold-primary);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
       padding: 5px 16px;
       border-radius: 9999px;
       margin-bottom: 16px;
-      font-weight: 600;
-      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.08);
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(197, 155, 63, 0.08);
     }
 
     h1 {
@@ -86,38 +88,35 @@
       font-weight: 700;
       letter-spacing: 1px;
       margin-bottom: 12px;
-      background: linear-gradient(180deg, #ffffff 0%, #d8dbe2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #1c1917;
     }
 
     p.subtitle {
       color: var(--text-muted);
       font-size: 0.98rem;
-      font-weight: 300;
+      font-weight: 400;
       max-width: 600px;
       margin: 0 auto;
     }
 
     /* ==========================================
-       BLOQUE EXPLICATIVO: ¿POR QUÉ DECANTS?
+       BLOQUE GUÍA & RENDIMIENTO (CLARO)
        ========================================== */
     .guide-section {
       width: 100%;
       max-width: 1200px;
-      background: rgba(13, 17, 26, 0.6);
-      border: 1px solid rgba(212, 175, 55, 0.2);
+      background: #ffffff;
+      border: 1px solid var(--border-card);
       border-radius: 20px;
-      padding: 24px 28px;
+      padding: 26px 30px;
       margin-bottom: 36px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(78, 64, 43, 0.05);
       position: relative;
     }
 
     .guide-header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .guide-header span {
@@ -128,67 +127,70 @@
       color: var(--gold-primary);
       display: block;
       margin-bottom: 4px;
+      font-weight: 700;
     }
 
     .guide-header h2 {
       font-family: 'Cinzel', serif;
       font-size: 1.35rem;
-      color: #ffffff;
-      font-weight: 600;
+      color: var(--text-main);
+      font-weight: 700;
     }
 
     .guide-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
+      gap: 20px;
     }
 
     .guide-card {
-      background: rgba(6, 7, 10, 0.6);
+      background: var(--gold-soft);
       border: 1px solid var(--border-card);
       border-radius: 14px;
       padding: 16px 18px;
       display: flex;
       gap: 14px;
       align-items: flex-start;
-      transition: border-color 0.25s ease;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     .guide-card:hover {
-      border-color: rgba(212, 175, 55, 0.35);
+      border-color: var(--border-card-hover);
+      box-shadow: 0 4px 14px rgba(197, 155, 63, 0.1);
     }
 
     .guide-icon {
       font-size: 1.6rem;
       line-height: 1;
       padding: 10px;
-      background: rgba(212, 175, 55, 0.08);
-      border: 1px solid rgba(212, 175, 55, 0.18);
+      background: #ffffff;
+      border: 1px solid var(--gold-border);
       border-radius: 10px;
       flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     }
 
     .guide-text h4 {
       font-size: 0.95rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-dark);
       margin-bottom: 4px;
     }
 
     .guide-text p {
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
       line-height: 1.45;
     }
 
     .guide-text strong {
-      color: #ffffff;
+      color: var(--text-main);
     }
 
     .guide-text em {
-      color: var(--price-color);
+      color: var(--gold-primary);
       font-style: normal;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     /* Buscador y Controles */
@@ -213,18 +215,17 @@
       padding: 14px 44px 14px 22px;
       border-radius: 9999px;
       border: 1px solid var(--border-card);
-      background-color: rgba(13, 17, 26, 0.85);
-      backdrop-filter: blur(12px);
+      background-color: #ffffff;
       color: var(--text-main);
       font-size: 0.92rem;
       outline: none;
       transition: all 0.25s ease;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
 
     .search-box input:focus {
       border-color: var(--gold-primary);
-      box-shadow: 0 0 0 3px var(--gold-glow), 0 8px 30px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 0 3px var(--gold-glow), 0 8px 25px rgba(0, 0, 0, 0.08);
     }
 
     .search-box input::placeholder {
@@ -238,7 +239,7 @@
       transform: translateY(-50%);
       background: none;
       border: none;
-      color: var(--text-muted);
+      color: var(--text-subtle);
       cursor: pointer;
       font-size: 1.2rem;
       display: none;
@@ -267,23 +268,23 @@
       padding: 7px 16px;
       border-radius: 9999px;
       font-size: 0.82rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.3px;
       cursor: pointer;
       transition: all 0.25s ease;
     }
 
     .chip:hover {
-      color: var(--gold-light);
-      border-color: rgba(212, 175, 55, 0.4);
+      color: var(--gold-dark);
+      border-color: var(--border-card-hover);
       transform: translateY(-1px);
     }
 
     .chip.active {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
-      color: var(--gold-light);
+      background: var(--gold-primary);
+      color: #ffffff;
       border-color: var(--gold-primary);
-      box-shadow: 0 2px 14px var(--gold-glow);
+      box-shadow: 0 4px 14px rgba(158, 116, 40, 0.3);
     }
 
     .results-count {
@@ -294,7 +295,7 @@
       width: 100%;
       padding: 0 6px;
       margin-bottom: -10px;
-      font-weight: 500;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -319,37 +320,22 @@
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.2) 50%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      box-shadow: 0 6px 24px rgba(78, 64, 43, 0.04);
     }
 
     .card:hover {
       transform: translateY(-5px);
       border-color: var(--border-card-hover);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(212, 175, 55, 0.15);
-    }
-
-    .card:hover::before {
-      opacity: 1;
+      box-shadow: 0 16px 36px -10px rgba(197, 155, 63, 0.18), 0 4px 12px rgba(0, 0, 0, 0.04);
     }
 
     .img-wrapper {
       position: relative;
       width: 100%;
       height: 220px;
-      background: radial-gradient(circle at 50% 50%, #151a27 0%, #080a0f 100%);
+      background: radial-gradient(circle at 50% 50%, #faf8f5 0%, #ede8de 100%);
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-card);
       overflow: hidden;
       margin-bottom: 16px;
       display: flex;
@@ -363,32 +349,28 @@
       object-fit: contain;
       padding: 12px;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.12));
     }
 
     .card:hover .perfume-img {
       transform: scale(1.06);
     }
 
-    /* Badge flotante de Ocasión / Vibra */
     .vibe-tag {
       position: absolute;
       top: 10px;
       left: 10px;
-      background: rgba(6, 7, 10, 0.82);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      color: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-dark);
       font-size: 0.7rem;
-      font-weight: 600;
+      font-weight: 700;
       padding: 3px 9px;
       border-radius: 9999px;
       letter-spacing: 0.3px;
       z-index: 2;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     .badge-family {
@@ -398,8 +380,8 @@
       text-transform: uppercase;
       letter-spacing: 0.8px;
       color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #f1ede4;
+      border: 1px solid var(--border-card);
       padding: 3px 10px;
       border-radius: 6px;
       margin-bottom: 10px;
@@ -410,20 +392,19 @@
       font-size: 1.18rem;
       font-weight: 700;
       margin-bottom: 10px;
-      color: #ffffff;
+      color: #1c1917;
       line-height: 1.35;
       letter-spacing: 0.4px;
     }
 
-    /* Caja destacada de Inspiración Olfativa */
     .inspiration-box {
-      background: rgba(212, 175, 55, 0.05);
-      border-left: 2px solid var(--gold-primary);
+      background: var(--gold-soft);
+      border-left: 3px solid var(--gold-primary);
       padding: 8px 12px;
       border-radius: 0 8px 8px 0;
       margin-bottom: 12px;
       font-size: 0.8rem;
-      color: #e5e7eb;
+      color: #292524;
       line-height: 1.35;
     }
 
@@ -439,27 +420,27 @@
     }
 
     .notes {
-      font-size: 0.82rem;
+      font-size: 0.83rem;
       color: var(--text-muted);
       margin-bottom: 18px;
       line-height: 1.5;
     }
 
     .notes strong {
-      color: #cbd5e1;
+      color: var(--text-main);
       font-weight: 600;
     }
 
-    /* Selector de Tamaños (5ml / 10ml) */
+    /* Selector de Medidas */
     .size-selector {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
-      background: rgba(0, 0, 0, 0.45);
+      background: #f4efe6;
       border-radius: 12px;
       padding: 6px;
       margin-bottom: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-card);
     }
 
     .size-option {
@@ -476,61 +457,362 @@
     }
 
     .size-option:hover {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.6);
     }
 
     .size-option.selected {
-      background: linear-gradient(145deg, rgba(212, 175, 55, 0.16) 0%, rgba(212, 175, 55, 0.06) 100%);
-      border-color: rgba(212, 175, 55, 0.45);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      background: #ffffff;
+      border-color: var(--border-card-hover);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     .size-label {
       font-size: 0.72rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-subtle);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
     .size-option.selected .size-label {
-      color: var(--gold-light);
+      color: var(--gold-dark);
     }
 
     .size-price {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.98rem;
       color: var(--price-color);
       letter-spacing: 0.3px;
     }
 
-    /* Botón WhatsApp */
-    .btn-wsp {
+    /* Botones de Acción */
+    .card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-add-cart {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      background: #1c1917;
       color: #ffffff;
-      text-decoration: none;
+      border: 1px solid #1c1917;
       padding: 12px 16px;
       border-radius: 10px;
       font-weight: 600;
       font-size: 0.88rem;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.4px;
+      cursor: pointer;
       transition: all 0.25s ease;
-      box-shadow: 0 4px 16px rgba(34, 197, 94, 0.25);
+      box-shadow: 0 4px 12px rgba(28, 25, 23, 0.15);
     }
 
-    .btn-wsp:hover {
-      background: linear-gradient(135deg, #25d366 0%, #15803d 100%);
+    .btn-add-cart:hover {
+      background: var(--gold-primary);
+      border-color: var(--gold-primary);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(158, 116, 40, 0.3);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
     }
 
-    .btn-wsp svg {
-      width: 17px;
-      height: 17px;
+    .btn-direct-wsp {
+      text-align: center;
+      color: var(--text-subtle);
+      font-size: 0.78rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: inline-block;
+      padding: 4px;
+      font-weight: 500;
+    }
+
+    .btn-direct-wsp:hover {
+      color: var(--wsp-color);
+      text-decoration: underline;
+    }
+
+    /* ==========================================
+       BARRA FLOTANTE DE PEDIDO (CARRITO CLARO)
+       ========================================== */
+    .cart-bar {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(140px);
+      width: calc(100% - 32px);
+      max-width: 620px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--gold-primary);
+      border-radius: 9999px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 14px 40px rgba(78, 64, 43, 0.2), 0 0 20px rgba(197, 155, 63, 0.15);
+      z-index: 1000;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-bar.visible {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .cart-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-icon-badge {
+      position: relative;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .cart-badge-count {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background: var(--gold-primary);
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-totals {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .cart-total-amount {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--price-color);
+      line-height: 1.2;
+    }
+
+    .btn-open-cart {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-open-cart:hover {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      transform: scale(1.03);
+    }
+
+    /* ==========================================
+       MODAL DE RESUMEN DEL PEDIDO (CLARO)
+       ========================================== */
+    .cart-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(28, 25, 23, 0.55);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 16px;
+    }
+
+    .cart-modal {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: 22px;
+      width: 100%;
+      max-width: 520px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      animation: modalFadeIn 0.25s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .cart-modal-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-modal-header h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .cart-modal-close {
+      background: none;
+      border: none;
+      color: var(--text-subtle);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .cart-modal-close:hover {
+      color: var(--text-main);
+    }
+
+    .cart-items-list {
+      padding: 16px 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--gold-soft);
+      border: 1px solid var(--border-card);
+      padding: 12px 16px;
+      border-radius: 12px;
+      gap: 12px;
+    }
+
+    .cart-item-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .cart-item-meta {
+      font-size: 0.75rem;
+      color: var(--gold-primary);
+      font-weight: 600;
+    }
+
+    .cart-item-price {
+      font-weight: 800;
+      color: var(--price-color);
+      font-size: 0.98rem;
+      white-space: nowrap;
+    }
+
+    .cart-item-del {
+      background: none;
+      border: none;
+      color: #dc2626;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 4px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .cart-item-del:hover {
+      opacity: 1;
+    }
+
+    .cart-empty-text {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 30px 10px;
+      font-size: 0.92rem;
+    }
+
+    .cart-modal-footer {
+      padding: 18px 24px;
+      border-top: 1px solid var(--border-card);
+      background: #faf8f5;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cart-modal-totals-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+
+    .cart-modal-totals-row span:first-child {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .cart-modal-totals-row strong {
+      color: var(--price-color);
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .btn-send-wsp-cart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      color: #ffffff;
+      border: none;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.3);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-send-wsp-cart:hover {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      transform: translateY(-1px);
+    }
+
+    .btn-send-wsp-cart svg {
+      width: 20px;
+      height: 20px;
       fill: currentColor;
     }
 
@@ -539,7 +821,7 @@
       grid-column: 1 / -1;
       text-align: center;
       padding: 60px 20px;
-      background: var(--bg-card);
+      background: #ffffff;
       border-radius: 18px;
       border: 1px dashed var(--border-card);
       display: none;
@@ -548,7 +830,7 @@
     .no-results h4 {
       font-family: 'Cinzel', serif;
       font-size: 1.25rem;
-      color: var(--gold-light);
+      color: var(--text-main);
       margin-bottom: 8px;
     }
 
@@ -634,6 +916,53 @@
     </div>
   </div>
 
+  <!-- ==========================================
+       BARRA FLOTANTE DE PEDIDO (CARRITO)
+       ========================================== -->
+  <div class="cart-bar" id="cartBar">
+    <div class="cart-info">
+      <div class="cart-icon-badge">
+        🛍️
+        <span class="cart-badge-count" id="cartBadge">0</span>
+      </div>
+      <div class="cart-totals">
+        <span class="cart-label" id="cartLabelItems">0 perfumes</span>
+        <span class="cart-total-amount" id="cartTotal">Total: $0</span>
+      </div>
+    </div>
+    <button class="btn-open-cart" onclick="openCartModal()">
+      Ver Pedido
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+
+  <!-- ==========================================
+       MODAL DE RESUMEN DEL PEDIDO
+       ========================================== -->
+  <div class="cart-modal-overlay" id="cartModalOverlay" onclick="closeCartModal(event)">
+    <div class="cart-modal" onclick="event.stopPropagation()">
+      <div class="cart-modal-header">
+        <h3>Tu Selección de Decants</h3>
+        <button class="cart-modal-close" onclick="closeCartModal()">&times;</button>
+      </div>
+
+      <div class="cart-items-list" id="cartItemsList">
+        <!-- Se llena dinámicamente -->
+      </div>
+
+      <div class="cart-modal-footer">
+        <div class="cart-modal-totals-row">
+          <span>Total Estimado:</span>
+          <strong id="cartModalTotal">$0</strong>
+        </div>
+        <button class="btn-send-wsp-cart" onclick="sendOrderViaWhatsApp()">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.204 8.204 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.45c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.32z"/></svg>
+          Enviar Pedido por WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // ==========================================
     // 1. CONFIGURACIÓN GENERAL
@@ -641,7 +970,7 @@
     const WHATSAPP_PHONE = "5492615653026";
 
     // ==========================================
-    // 2. CATÁLOGO CON OCASIONES Y VIBRA
+    // 2. CATÁLOGO CON OCASIONES Y PRECIOS
     // ==========================================
     const perfumes = [
       {
@@ -856,10 +1185,19 @@
 
     const selectedSizes = {};
     let activeCategory = 'all';
+    let cart = [];
 
     perfumes.forEach(p => {
       selectedSizes[p.id] = '5ml';
     });
+
+    function parsePrice(priceStr) {
+      return parseInt(priceStr.replace(/[^0-9]/g, ''), 10) || 0;
+    }
+
+    function formatPrice(num) {
+      return '$' + num.toLocaleString('es-AR');
+    }
 
     // ==========================================
     // 3. RENDERIZADO
@@ -904,10 +1242,15 @@
                 <span class="size-price">${p.price10ml}</span>
               </div>
             </div>
-            <a class="btn-wsp" id="wsp-${p.id}" target="_blank" href="${buildWhatsAppLink(p.name, currentSize)}">
-              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.204 8.204 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.45c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.32z"/></svg>
-              Pedir por WhatsApp
-            </a>
+
+            <div class="card-actions">
+              <button class="btn-add-cart" id="btn-add-${p.id}" onclick="addToCart('${p.id}')">
+                + Agregar al Pedido
+              </button>
+              <a class="btn-direct-wsp" id="wsp-direct-${p.id}" target="_blank" href="${buildSingleWhatsAppLink(p.name, currentSize)}">
+                o pedir solo este por WhatsApp
+              </a>
+            </div>
           </div>
         `;
 
@@ -918,9 +1261,130 @@
     }
 
     // ==========================================
-    // 4. INTERACCIÓN Y ENLACES WHATSAPP
+    // 4. CARRITO DE COMPRAS & WHATSAPP
     // ==========================================
-    function buildWhatsAppLink(perfumeName, size) {
+    function addToCart(perfumeId) {
+      const perfume = perfumes.find(p => p.id === perfumeId);
+      if (!perfume) return;
+
+      const size = selectedSizes[perfumeId];
+      const priceStr = (size === '5ml') ? perfume.price5ml : perfume.price10ml;
+      const priceNum = parsePrice(priceStr);
+
+      cart.push({
+        id: `${perfumeId}-${size}-${Date.now()}`,
+        perfumeId: perfume.id,
+        name: perfume.name,
+        size: size,
+        priceStr: priceStr,
+        priceNum: priceNum
+      });
+
+      const btn = document.getElementById(`btn-add-${perfumeId}`);
+      if (btn) {
+        const originalText = btn.textContent;
+        btn.textContent = "✓ ¡Agregado!";
+        btn.style.background = "var(--gold-primary)";
+        btn.style.borderColor = "var(--gold-primary)";
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = "";
+          btn.style.borderColor = "";
+        }, 800);
+      }
+
+      updateCartUI();
+    }
+
+    function removeFromCart(cartItemId) {
+      cart = cart.filter(item => item.id !== cartItemId);
+      updateCartUI();
+      renderCartModalItems();
+      if (cart.length === 0) {
+        closeCartModal();
+      }
+    }
+
+    function updateCartUI() {
+      const cartBar = document.getElementById('cartBar');
+      const badge = document.getElementById('cartBadge');
+      const label = document.getElementById('cartLabelItems');
+      const totalEl = document.getElementById('cartTotal');
+
+      const count = cart.length;
+      if (count > 0) {
+        cartBar.classList.add('visible');
+        badge.textContent = count;
+        label.textContent = `${count} ${count === 1 ? 'decant' : 'decants'}`;
+        
+        const total = cart.reduce((acc, item) => acc + item.priceNum, 0);
+        totalEl.textContent = `Total: ${formatPrice(total)}`;
+      } else {
+        cartBar.classList.remove('visible');
+      }
+    }
+
+    function openCartModal() {
+      renderCartModalItems();
+      document.getElementById('cartModalOverlay').style.display = 'flex';
+    }
+
+    function closeCartModal(e) {
+      document.getElementById('cartModalOverlay').style.display = 'none';
+    }
+
+    function renderCartModalItems() {
+      const list = document.getElementById('cartItemsList');
+      const modalTotal = document.getElementById('cartModalTotal');
+
+      if (cart.length === 0) {
+        list.innerHTML = `<div class="cart-empty-text">Tu selección está vacía.<br>¡Agrega fragancias del catálogo para armar tu pedido!</div>`;
+        modalTotal.textContent = "$0";
+        return;
+      }
+
+      let html = "";
+      let total = 0;
+
+      cart.forEach(item => {
+        total += item.priceNum;
+        html += `
+          <div class="cart-item">
+            <div>
+              <div class="cart-item-title">${item.name}</div>
+              <div class="cart-item-meta">Decant ${item.size}</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span class="cart-item-price">${item.priceStr}</span>
+              <button class="cart-item-del" onclick="removeFromCart('${item.id}')" title="Eliminar">🗑️</button>
+            </div>
+          </div>
+        `;
+      });
+
+      list.innerHTML = html;
+      modalTotal.textContent = formatPrice(total);
+    }
+
+    function sendOrderViaWhatsApp() {
+      if (cart.length === 0) return;
+
+      let msg = "¡Hola! Quiero hacer el siguiente pedido de decants:\n";
+      let total = 0;
+
+      cart.forEach((item) => {
+        total += item.priceNum;
+        msg += `• 1x ${item.name} (${item.size}) - ${item.priceStr}\n`;
+      });
+
+      msg += `\nTotal estimado: ${formatPrice(total)}\n`;
+      msg += "¿Me confirmas disponibilidad y datos para transferir?";
+
+      const encodedMsg = encodeURIComponent(msg);
+      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodedMsg}`, '_blank');
+    }
+
+    function buildSingleWhatsAppLink(perfumeName, size) {
       const text = encodeURIComponent(`¡Hola! Quiero pedir un decant de ${size} de ${perfumeName}.`);
       return `https://wa.me/${WHATSAPP_PHONE}?text=${text}`;
     }
@@ -937,9 +1401,9 @@
       });
 
       const perfume = perfumes.find(p => p.id === perfumeId);
-      const wspBtn = document.getElementById(`wsp-${perfumeId}`);
-      if (wspBtn && perfume) {
-        wspBtn.href = buildWhatsAppLink(perfume.name, size);
+      const directWsp = document.getElementById(`wsp-direct-${perfumeId}`);
+      if (directWsp && perfume) {
+        directWsp.href = buildSingleWhatsAppLink(perfume.name, size);
       }
     }
 
