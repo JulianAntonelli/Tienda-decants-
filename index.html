@@ -44,7 +44,6 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-base);
-      /* Halo de luz cálida superior tipo boutique nocturna */
       background-image: 
         radial-gradient(circle at 50% -100px, rgba(212, 175, 55, 0.14) 0%, transparent 55%),
         radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.04) 0%, transparent 40%);
@@ -96,7 +95,7 @@
       color: var(--text-muted);
       font-size: 0.98rem;
       font-weight: 300;
-      max-width: 580px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
@@ -114,7 +113,7 @@
     .search-box {
       position: relative;
       width: 100%;
-      max-width: 540px;
+      max-width: 560px;
     }
 
     .search-box input {
@@ -166,7 +165,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 9px;
-      max-width: 820px;
+      max-width: 840px;
     }
 
     .chip {
@@ -230,7 +229,6 @@
       overflow: hidden;
     }
 
-    /* Reflejo superior elegante en las tarjetas */
     .card::before {
       content: '';
       position: absolute;
@@ -280,15 +278,36 @@
       transform: scale(1.06);
     }
 
-    .badge {
+    /* Badge flotante de Ocasión / Vibra */
+    .vibe-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(6, 7, 10, 0.82);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--gold-light);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 9999px;
+      letter-spacing: 0.3px;
+      z-index: 2;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .badge-family {
       display: inline-block;
       font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      color: var(--gold-light);
-      background: rgba(212, 175, 55, 0.08);
-      border: 1px solid rgba(212, 175, 55, 0.22);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       padding: 3px 10px;
       border-radius: 6px;
       margin-bottom: 10px;
@@ -452,12 +471,12 @@
   <header>
     <span class="brand-tag">Colección Privada</span>
     <h1>Decants de Perfumes</h1>
-    <p class="subtitle">Fraccionados 100% auténticos e inspiraciones icónicas en atomizadores de vidrio de 5 ml y 10 ml.</p>
+    <p class="subtitle">Fraccionados 100% auténticos e inspiraciones de autor en atomizadores de vidrio de 5 ml y 10 ml.</p>
   </header>
 
   <div class="controls-container">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar por fragancia, nota o inspiración (ej: Bvlgari, Ultra Male, Invictus)..." oninput="handleSearch()">
+      <input type="text" id="searchInput" placeholder="Buscar por ocasión (citas, fiesta, gym), notas o inspiración..." oninput="handleSearch()">
       <button class="search-clear" id="clearBtn" onclick="clearSearch()" title="Limpiar búsqueda">&times;</button>
     </div>
 
@@ -477,7 +496,7 @@
   <div class="grid" id="perfumeGrid">
     <div class="no-results" id="noResults">
       <h4>No encontramos coincidencias</h4>
-      <p>Prueba buscando por inspiración (ej: Bvlgari, Le Male, Chanel, Invictus) o restablece los filtros.</p>
+      <p>Prueba buscando por ocasión (ej: citas, fiesta, diario, calor) o restablece los filtros.</p>
     </div>
   </div>
 
@@ -488,7 +507,7 @@
     const WHATSAPP_PHONE = "5492615653026";
 
     // ==========================================
-    // 2. CATÁLOGO CON PRECIOS ARS E INSPIRACIONES
+    // 2. CATÁLOGO CON OCASIONES Y VIBRA
     // ==========================================
     const perfumes = [
       {
@@ -496,10 +515,11 @@
         name: "Lattafa The Kingdom",
         tag: "Árabe / Oriental",
         category: "Árabe",
+        occasion: "🖤 Citas & Conquista Nocturna",
         inspiration: "Jean Paul Gaultier - Le Male Elixir",
         img: "kingdom.avif",
         notes: "Lavanda, Menta, Salvia, Vainilla, Tabaco y Haba Tonka.",
-        searchTerms: "lattafa the kingdom jpg jean paul gaultier le male elixir vainilla tabaco arabe",
+        searchTerms: "lattafa the kingdom jpg jean paul gaultier le male elixir citas romance noche seduccion sensual calido",
         price5ml: "$7.500",
         price10ml: "$13.500"
       },
@@ -508,10 +528,11 @@
         name: "Lattafa Qaed Al Fursan",
         tag: "Árabe / Frutal",
         category: "Árabe",
+        occasion: "🔥 Imán de Cumplidos",
         inspiration: "Creed Aventus (Piña jugosa) / Black XS",
         img: "fursan.avif",
         notes: "Piña dulce jugosa, Azafrán, Jazmín, Bálsamo de abeto, Ámbar y Cedro.",
-        searchTerms: "lattafa qaed al fursan creed aventus black xs paco rabanne piña dulce arabe",
+        searchTerms: "lattafa qaed al fursan creed aventus black xs paco rabanne piña dulce salidas cumplidos fiesta",
         price5ml: "$6.000",
         price10ml: "$10.500"
       },
@@ -520,10 +541,11 @@
         name: "Lattafa Ramz Silver",
         tag: "Árabe / Gourmand",
         category: "Dulce",
+        occasion: "💣 Fiesta & Clubbing",
         inspiration: "Jean Paul Gaultier - Ultra Male",
         img: "ramz.avif",
         notes: "Pera, Lavanda, Bergamota, Menta, Vainilla, Cardamomo y Pachulí.",
-        searchTerms: "lattafa ramz silver jpg jean paul gaultier ultra male afnan 9pm pera vainilla",
+        searchTerms: "lattafa ramz silver jpg ultra male afnan 9pm fiesta boliche salidas clubbing noche dulce",
         price5ml: "$6.000",
         price10ml: "$10.500"
       },
@@ -532,10 +554,11 @@
         name: "Sheikh Al Shuyukh Supreme",
         tag: "Árabe / Oriental Dulce",
         category: "Dulce",
+        occasion: "☕ Noches Frías / Gourmet",
         inspiration: "Lancôme Oud Bouquet / Chocolate Greedy",
         img: "sheikh.avif",
         notes: "Canela, Cardamomo, Chocolate negro, Vainilla, Ámbar y Cedro.",
-        searchTerms: "lattafa sheikh al shuyukh supreme lancome oud bouquet montale chocolate greedy canela dulce",
+        searchTerms: "lattafa sheikh al shuyukh supreme lancome oud bouquet chocolate greedy invierno frio noche gourmet",
         price5ml: "$6.500",
         price10ml: "$11.500"
       },
@@ -544,10 +567,11 @@
         name: "Lattafa Hayaati",
         tag: "Árabe / Versátil",
         category: "Árabe",
+        occasion: "⚡ Firma Diaria & Facultad",
         inspiration: "Paco Rabanne Invictus / Rasasi Hawas",
         img: "hayaati.avif",
         notes: "Manzana, Bergamota, Canela, Notas amaderadas, Vainilla y Almizcle.",
-        searchTerms: "lattafa hayaati paco rabanne invictus hawas rasasi manzana versatil",
+        searchTerms: "lattafa hayaati paco rabanne invictus hawas rasasi diario versatil oficina facultad juvenil",
         price5ml: "$6.000",
         price10ml: "$10.500"
       },
@@ -556,10 +580,11 @@
         name: "Afnan 9 AM Dive",
         tag: "Fresco / Acuático",
         category: "Fresco",
+        occasion: "🌊 Todo Terreno / Alta Duración",
         inspiration: "Bleu de Chanel + YSL Y EDP (Híbrido Azul)",
         img: "9am.avif",
         notes: "Menta, Limón, Grosellas negras, Manzana, Incienso y Cedro.",
-        searchTerms: "afnan 9 am dive bleu de chanel ysl y edp yves saint laurent acuatico menta",
+        searchTerms: "afnan 9 am dive bleu de chanel ysl y edp acuatico menta duracion oficina versatil formal",
         price5ml: "$8.000",
         price10ml: "$14.500"
       },
@@ -568,10 +593,11 @@
         name: "Rave Rage",
         tag: "Amaderado / Aromático",
         category: "Amaderado",
+        occasion: "🌙 Casual con Actitud",
         inspiration: "Hugo Boss Just Different / Dylan Blue",
         img: "rage.avif",
         notes: "Manzana, Menta, Fresia, Albahaca, Cilantro, Ládano, Incienso y Pachulí.",
-        searchTerms: "rave rage lattafa hugo boss just different versace dylan blue menta incienso",
+        searchTerms: "rave rage lattafa hugo boss just different dylan blue noche casual salidas amigos",
         price5ml: "$6.500",
         price10ml: "$11.500"
       },
@@ -580,10 +606,11 @@
         name: "Armaf Odyssey Limoni Fresh",
         tag: "Cítrico / Fresco",
         category: "Cítrico",
+        occasion: "🍋 Verano & Oficina Elegante",
         inspiration: "Chanel Allure Homme Blanche / Dior Homme Cologne",
         img: "limoni.avif",
         notes: "Limón, Bergamota, Mandarina, Jengibre, Notas marinas y Ámbar.",
-        searchTerms: "armaf odyssey limoni fresh chanel allure homme blanche dior homme cologne limon citrico",
+        searchTerms: "armaf odyssey limoni fresh chanel allure homme blanche calor verano oficina trabajo limpio",
         price5ml: "$7.500",
         price10ml: "$13.500"
       },
@@ -592,10 +619,11 @@
         name: "Maison Alhambra Galactic Men",
         tag: "Oriental / Cálido",
         category: "Árabe",
+        occasion: "🥃 Citas & Noches de Copas",
         inspiration: "Mugler A*Men Pure Havane / Spicebomb Extreme",
         img: "galactic.avif",
         notes: "Tabaco, Miel, Cacao, Vainilla, Pachulí y Sándalo.",
-        searchTerms: "maison alhambra galactic men mugler pure havane viktor rolf spicebomb extreme tabaco miel",
+        searchTerms: "maison alhambra galactic men mugler pure havane spicebomb extreme tabaco miel bar citas copas noche",
         price5ml: "$7.500",
         price10ml: "$13.000"
       },
@@ -604,10 +632,11 @@
         name: "Natura Homem Tato",
         tag: "Amaderado Intenso",
         category: "Amaderado",
+        occasion: "🖤 Seducción Pura & Misterio",
         inspiration: "Bvlgari Man in Black",
         img: "tato.avif",
         notes: "Cardamomo, Pimienta negra, Iris, Cuero, Sándalo y Cumarú.",
-        searchTerms: "natura homem tato bulgary bvlgari man in black cuero cardamomo amaderado",
+        searchTerms: "natura homem tato bulgary bvlgari man in black cuero citas romance seduccion invierno noche intimo",
         price5ml: "$6.000",
         price10ml: "$10.500"
       },
@@ -616,10 +645,11 @@
         name: "Nautica Voyage",
         tag: "Fresco Diario",
         category: "Fresco",
+        occasion: "☀️ Gym, Calor Extremo & Diario",
         inspiration: "Perfume Original de Diseñador",
         img: "voyage.avif",
         notes: "Manzana verde, Hojas verdes, Loto, Mimosa, Almizcle y Cedro.",
-        searchTerms: "nautica voyage acuatico manzana verde marino fresco diseno original",
+        searchTerms: "nautica voyage gym gimnasio deporte calor verano diario limpio fresco",
         price5ml: "$4.500",
         price10ml: "$8.000"
       },
@@ -628,10 +658,11 @@
         name: "Antonio Banderas Blue Seduction",
         tag: "Cítrico / Acuático",
         category: "Cítrico",
+        occasion: "🏖️ Salidas Diurnas & Relax",
         inspiration: "Versace Man Eau Fraîche (Estilo similar)",
         img: "blue.avif",
         notes: "Melón, Bergamota, Menta, Grosellas, Capuchino y Notas marinas.",
-        searchTerms: "antonio banderas blue seduction versace man eau fraiche acuatico melon citrico",
+        searchTerms: "antonio banderas blue seduction versace man eau fraiche verano playa pileta calor diario",
         price5ml: "$4.500",
         price10ml: "$8.000"
       },
@@ -640,10 +671,11 @@
         name: "King of Seduction Absolute",
         tag: "Aromático Marino",
         category: "Fresco",
+        occasion: "🎯 Conquista Casual / Tarde-Noche",
         inspiration: "Paco Rabanne Invictus Aqua",
         img: "king.avif",
         notes: "Pomelo, Toronja, Notas marinas, Cardamomo, Lavanda y Cuero.",
-        searchTerms: "antonio banderas king of seduction absolute paco rabanne invictus aqua marino pomelo",
+        searchTerms: "antonio banderas king of seduction absolute invictus aqua tarde noche citas casual",
         price5ml: "$4.500",
         price10ml: "$8.000"
       },
@@ -652,10 +684,11 @@
         name: "King of Seduction Summerland",
         tag: "Verano / Frutal",
         category: "Fresco",
+        occasion: "🍹 Vacaciones, Pileta & Playa",
         inspiration: "Jean Paul Gaultier Le Beau / Invictus",
         img: "summerland.avif",
         notes: "Piña, Melón, Bergamota, Notas oceánicas, Cedro y Ámbar.",
-        searchTerms: "antonio banderas king of seduction summerland jpg le beau invictus piña frutal verano",
+        searchTerms: "antonio banderas king of seduction summerland vacaciones verano pileta calor piña frutal",
         price5ml: "$4.500",
         price10ml: "$8.000"
       },
@@ -664,10 +697,11 @@
         name: "The Secret Absolu",
         tag: "Oriental / Cálido",
         category: "Dulce",
+        occasion: "🍸 Cena Romántica & Elegancia",
         inspiration: "Paco Rabanne 1 Million Privé / Tom Ford",
         img: "secret-absolu.avif",
         notes: "Manzana verde, Cardamomo, Jengibre, Lavanda, Azafrán, Gamuza, Coñac y Ámbar.",
-        searchTerms: "antonio banderas the secret absolu paco rabanne 1 million prive one million tom ford coñac licor",
+        searchTerms: "antonio banderas the secret absolu cena citas elegante noche romance coñac licor",
         price5ml: "$5.000",
         price10ml: "$9.000"
       },
@@ -676,10 +710,11 @@
         name: "Kenzo Homme EDP Intense",
         tag: "Acuático Amaderado",
         category: "Amaderado",
+        occasion: "👑 Proyección Nuclear & Distinción",
         inspiration: "Creación Original (Quentin Bisch)",
         img: "kenzo.avif",
         notes: "Notas marinas, Pimienta rosa, Madera de higuera, Vetiver y Madera de Akigala.",
-        searchTerms: "kenzo homme edp intense quentin bisch nicho importado marino amaderado higo",
+        searchTerms: "kenzo homme edp intense quentin bisch bestia duracion firma elegante nicho unico cumplidos",
         price5ml: "$12.500",
         price10ml: "$22.000"
       }
@@ -706,14 +741,15 @@
         card.className = 'card';
         card.id = `card-${p.id}`;
         card.setAttribute('data-category', p.category);
-        card.setAttribute('data-search', `${p.name} ${p.inspiration} ${p.searchTerms}`.toLowerCase());
+        card.setAttribute('data-search', `${p.name} ${p.inspiration} ${p.occasion} ${p.searchTerms}`.toLowerCase());
 
         card.innerHTML = `
           <div>
             <div class="img-wrapper">
+              <span class="vibe-tag">${p.occasion}</span>
               <img src="${p.img}" alt="${p.name}" class="perfume-img" loading="lazy" onerror="this.src='https://via.placeholder.com/220x220?text=Perfume'">
             </div>
-            <span class="badge">${p.tag}</span>
+            <span class="badge-family">${p.tag}</span>
             <h3>${p.name}</h3>
             
             <div class="inspiration-box">
