@@ -27,7 +27,7 @@
       --text-muted: #57534e;
       --text-subtle: #78716c;
       
-      --price-color: #15803d; /* Verde esmeralda elegante para el precio */
+      --price-color: #15803d;
       --wsp-color: #16a34a;
       --wsp-hover: #15803d;
       
@@ -45,13 +45,12 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-base);
-      /* Luz cálida tipo boutique de alta gama */
       background-image: 
         radial-gradient(circle at 50% -80px, rgba(197, 155, 63, 0.15) 0%, transparent 60%),
         radial-gradient(circle at 90% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 45%);
       background-repeat: no-repeat;
       color: var(--text-main);
-      padding: 40px 16px 120px;
+      padding: 0 16px 140px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -59,9 +58,38 @@
       min-height: 100vh;
     }
 
+    /* ==========================================
+       BARRA SUPERIOR: GRAN MENDOZA
+       ========================================== */
+    .top-announcement {
+      width: 100vw;
+      background: #1c1917;
+      color: #f8f6f2;
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 0.8rem;
+      letter-spacing: 0.4px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .top-announcement strong {
+      color: var(--gold-soft);
+    }
+
+    .top-announcement span.free-badge {
+      background: var(--gold-primary);
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.72rem;
+      margin-left: 4px;
+    }
+
     header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       max-width: 720px;
       position: relative;
     }
@@ -100,7 +128,63 @@
     }
 
     /* ==========================================
-       BLOQUE GUÍA & RENDIMIENTO (CLARO)
+       BANNER PROMO TRÍO
+       ========================================== */
+    .promo-banner {
+      width: 100%;
+      max-width: 1200px;
+      background: linear-gradient(135deg, #1c1917 0%, #29231c 100%);
+      color: #ffffff;
+      border: 1px solid var(--gold-primary);
+      border-radius: 16px;
+      padding: 16px 24px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(28, 25, 23, 0.12);
+      flex-wrap: wrap;
+    }
+
+    .promo-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .promo-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .promo-text h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      color: var(--gold-soft);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .promo-text p {
+      font-size: 0.84rem;
+      color: #d6d3d1;
+    }
+
+    .promo-badge-tag {
+      background: var(--gold-primary);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ==========================================
+       BLOQUE GUÍA & RENDIMIENTO
        ========================================== */
     .guide-section {
       width: 100%;
@@ -108,7 +192,7 @@
       background: #ffffff;
       border: 1px solid var(--border-card);
       border-radius: 20px;
-      padding: 26px 30px;
+      padding: 24px 28px;
       margin-bottom: 36px;
       box-shadow: 0 10px 30px rgba(78, 64, 43, 0.05);
       position: relative;
@@ -116,7 +200,7 @@
 
     .guide-header {
       text-align: center;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .guide-header span {
@@ -193,26 +277,36 @@
       font-weight: 700;
     }
 
-    /* Buscador y Controles */
+    /* ==========================================
+       BUSCADOR Y ORDENADOR
+       ========================================== */
     .controls-container {
       width: 100%;
       max-width: 1200px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
       margin-bottom: 36px;
+    }
+
+    .search-sort-bar {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      max-width: 720px;
+      flex-wrap: wrap;
     }
 
     .search-box {
       position: relative;
-      width: 100%;
-      max-width: 560px;
+      flex: 1;
+      min-width: 280px;
     }
 
     .search-box input {
       width: 100%;
-      padding: 14px 44px 14px 22px;
+      padding: 13px 44px 13px 20px;
       border-radius: 9999px;
       border: 1px solid var(--border-card);
       background-color: #ffffff;
@@ -228,10 +322,6 @@
       box-shadow: 0 0 0 3px var(--gold-glow), 0 8px 25px rgba(0, 0, 0, 0.08);
     }
 
-    .search-box input::placeholder {
-      color: var(--text-subtle);
-    }
-
     .search-clear {
       position: absolute;
       right: 16px;
@@ -245,11 +335,29 @@
       display: none;
       padding: 4px;
       line-height: 1;
-      transition: color 0.2s ease;
     }
 
-    .search-clear:hover {
-      color: var(--gold-primary);
+    .sort-box {
+      position: relative;
+    }
+
+    .sort-select {
+      height: 100%;
+      padding: 13px 18px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-card);
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-size: 0.88rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .sort-select:focus {
+      border-color: var(--gold-primary);
     }
 
     /* Filtros por Categoría */
@@ -337,7 +445,7 @@
       border-radius: 12px;
       border: 1px solid var(--border-card);
       overflow: hidden;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -373,6 +481,13 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
+    .tags-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
     .badge-family {
       display: inline-block;
       font-size: 0.68rem;
@@ -382,16 +497,27 @@
       color: var(--text-muted);
       background: #f1ede4;
       border: 1px solid var(--border-card);
-      padding: 3px 10px;
+      padding: 3px 8px;
       border-radius: 6px;
-      margin-bottom: 10px;
+    }
+
+    /* Indicador de Estación */
+    .badge-season {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      padding: 3px 8px;
+      border-radius: 6px;
     }
 
     .card h3 {
       font-family: 'Cinzel', serif;
       font-size: 1.18rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: #1c1917;
       line-height: 1.35;
       letter-spacing: 0.4px;
@@ -400,7 +526,7 @@
     .inspiration-box {
       background: var(--gold-soft);
       border-left: 3px solid var(--gold-primary);
-      padding: 8px 12px;
+      padding: 7px 12px;
       border-radius: 0 8px 8px 0;
       margin-bottom: 12px;
       font-size: 0.8rem;
@@ -535,20 +661,182 @@
     }
 
     /* ==========================================
-       BARRA FLOTANTE DE PEDIDO (CARRITO CLARO)
+       SECCIÓN FAQ (PREGUNTAS FRECUENTES)
+       ========================================== */
+    .faq-section {
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 50px;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(78, 64, 43, 0.05);
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .faq-header span {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .faq-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      background: var(--gold-soft);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .faq-item[open] {
+      border-color: var(--gold-border);
+    }
+
+    .faq-item summary {
+      padding: 16px 20px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      color: var(--gold-primary);
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item[open] summary::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 0 20px 18px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .faq-answer strong {
+      color: var(--text-main);
+    }
+
+    /* ==========================================
+       SECCIÓN FOOTER INFORMATIVA: MENDOZA
+       ========================================== */
+    .local-info-section {
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 24px;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(78, 64, 43, 0.05);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .local-card h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
+
+    .local-card p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================
+       BOTÓN FLOTANTE DE ASESORAMIENTO WHATSAPP
+       ========================================== */
+    .floating-wsp-help {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.35);
+      z-index: 900;
+      transition: all 0.25s ease;
+    }
+
+    .floating-wsp-help:hover {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    .floating-wsp-help svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* ==========================================
+       BARRA FLOTANTE DE PEDIDO (CARRITO)
        ========================================== */
     .cart-bar {
       position: fixed;
       bottom: 24px;
       left: 50%;
-      transform: translateX(-50%) translateY(140px);
+      transform: translateX(-50%) translateY(160px);
       width: calc(100% - 32px);
-      max-width: 620px;
+      max-width: 580px;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(16px);
       border: 1px solid var(--gold-primary);
       border-radius: 9999px;
-      padding: 12px 20px;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -595,12 +883,10 @@
       flex-direction: column;
     }
 
-    .cart-label {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-weight: 600;
+    .cart-promo-hint {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold-dark);
     }
 
     .cart-total-amount {
@@ -633,7 +919,7 @@
     }
 
     /* ==========================================
-       MODAL DE RESUMEN DEL PEDIDO (CLARO)
+       MODAL DE RESUMEN DEL PEDIDO CON SELECTOR
        ========================================== */
     .cart-modal-overlay {
       position: fixed;
@@ -656,7 +942,7 @@
       border-radius: 22px;
       width: 100%;
       max-width: 520px;
-      max-height: 85vh;
+      max-height: 90vh;
       display: flex;
       flex-direction: column;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
@@ -670,7 +956,7 @@
     }
 
     .cart-modal-header {
-      padding: 20px 24px 16px;
+      padding: 18px 24px 14px;
       border-bottom: 1px solid var(--border-card);
       display: flex;
       align-items: center;
@@ -697,12 +983,24 @@
       color: var(--text-main);
     }
 
+    .modal-promo-alert {
+      background: var(--gold-soft);
+      border-bottom: 1px solid var(--border-card);
+      padding: 10px 24px;
+      font-size: 0.82rem;
+      color: var(--gold-dark);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .cart-items-list {
       padding: 16px 24px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       flex-grow: 1;
     }
 
@@ -752,39 +1050,68 @@
       opacity: 1;
     }
 
-    .cart-empty-text {
-      text-align: center;
-      color: var(--text-muted);
-      padding: 30px 10px;
-      font-size: 0.92rem;
+    .delivery-options-box {
+      background: #f7f5f0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 6px;
+      border: 1px solid var(--border-card);
+    }
+
+    .delivery-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+
+    .delivery-radio-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.83rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+
+    .delivery-radio-label input {
+      accent-color: var(--gold-primary);
     }
 
     .cart-modal-footer {
-      padding: 18px 24px;
+      padding: 16px 24px 20px;
       border-top: 1px solid var(--border-card);
       background: #faf8f5;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .cart-modal-totals-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 1.1rem;
     }
 
-    .cart-modal-totals-row span:first-child {
+    .cart-modal-totals-row span {
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
     }
 
     .cart-modal-totals-row strong {
       color: var(--price-color);
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 800;
+    }
+
+    .discount-line {
+      color: #16a34a !important;
+      font-size: 0.85rem !important;
+      font-weight: 700 !important;
     }
 
     .btn-send-wsp-cart {
@@ -816,7 +1143,6 @@
       fill: currentColor;
     }
 
-    /* Mensaje sin resultados */
     .no-results {
       grid-column: 1 / -1;
       text-align: center;
@@ -842,11 +1168,32 @@
 </head>
 <body>
 
+  <!-- ==========================================
+       BARRA TOP MENDOZA
+       ========================================== -->
+  <div class="top-announcement">
+    📍 <strong>Gran Mendoza:</strong> Puntos de encuentro coordinados <span class="free-badge">SIN COSTO</span> • Envíos a domicilio (mínimo costo extra)
+  </div>
+
   <header>
     <span class="brand-tag">Colección Privada</span>
     <h1>Decants de Perfumes</h1>
     <p class="subtitle">Fraccionados 100% auténticos e inspiraciones de autor en atomizadores de vidrio de 5 ml y 10 ml.</p>
   </header>
+
+  <!-- ==========================================
+       BANNER PROMO TRÍO (ESENCIAL)
+       ========================================== -->
+  <div class="promo-banner">
+    <div class="promo-content">
+      <div class="promo-icon">📦</div>
+      <div class="promo-text">
+        <h3>Promo Trío Esencial: 10% OFF</h3>
+        <p>Armá tu rotación perfecta: sumá <strong>3 o más decants</strong> y obtené un 10% de descuento automático en tu pedido.</p>
+      </div>
+    </div>
+    <span class="promo-badge-tag">10% OFF en 3+ decants</span>
+  </div>
 
   <!-- ==========================================
        BLOQUE GUÍA & RENDIMIENTO
@@ -890,10 +1237,23 @@
     </div>
   </section>
 
+  <!-- ==========================================
+       CONTROLES: BÚSQUEDA Y ORDENADOR
+       ========================================== -->
   <div class="controls-container">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar por ocasión (citas, fiesta, gym), notas o inspiración..." oninput="handleSearch()">
-      <button class="search-clear" id="clearBtn" onclick="clearSearch()" title="Limpiar búsqueda">&times;</button>
+    <div class="search-sort-bar">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar por ocasión, notas, estación o inspiración..." oninput="handleSearch()">
+        <button class="search-clear" id="clearBtn" onclick="clearSearch()" title="Limpiar búsqueda">&times;</button>
+      </div>
+      <div class="sort-box">
+        <select class="sort-select" id="sortSelect" onchange="handleSort()">
+          <option value="default">✨ Recomendados</option>
+          <option value="price-asc">💵 Precio: Menor a Mayor</option>
+          <option value="price-desc">💎 Precio: Mayor a Menor</option>
+          <option value="name-asc">🔤 Nombre: A - Z</option>
+        </select>
+      </div>
     </div>
 
     <!-- Filtros rápidos por familia olfativa -->
@@ -917,6 +1277,78 @@
   </div>
 
   <!-- ==========================================
+       SECCIÓN FAQ: PREGUNTAS FRECUENTES
+       ========================================== -->
+  <section class="faq-section">
+    <div class="faq-header">
+      <span>Resolvemos tus dudas</span>
+      <h2>Preguntas Frecuentes</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>¿Los perfumes son 100% originales?</summary>
+        <div class="faq-answer">
+          <strong>Sí, totalmente.</strong> Cada decant es extraído de forma directa y genuina de botellas originales de nuestra colección personal. No vendemos réplicas ni imitaciones de baja calidad; garantizamos la misma fragancia que encontrarías en la botella original.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Cuáles son los puntos de encuentro en el Gran Mendoza?</summary>
+        <div class="faq-answer">
+          Realizamos entregas coordinadas <strong>SIN COSTO</strong> en puntos céntricos y de fácil acceso como Peatonal Sarmiento, Plaza Independencia, Mendoza Plaza Shopping, Palmares Open Mall o estaciones del metrotranvía céntricas. Coordinamos día y horario por WhatsApp luego de tu pedido.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Cómo funcionan los envíos a domicilio?</summary>
+        <div class="faq-answer">
+          Si prefieres recibirlo en la puerta de tu casa o trabajo, coordinamos con cadetería express a todo el Gran Mendoza (Godoy Cruz, Capital, Guaymallén, Las Heras, Maipú y Luján de Cuyo) con un <strong>mínimo costo extra de envío</strong>.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Cómo se fracciona el perfume para no perder aroma?</summary>
+        <div class="faq-answer">
+          Utilizamos jeringas graduadas estériles de uso único y embudos especiales para evitar la sobreexposición al aire. Cada atomizador es de <strong>vidrio grueso de alta calidad</strong> y sellado herméticamente con cinta teflón en la rosca para impedir cualquier fuga o evaporación.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Qué medios de pago aceptan?</summary>
+        <div class="faq-answer">
+          Aceptamos <strong>Transferencia bancaria / CBU / Alias</strong>, dinero en cuenta de <strong>Mercado Pago</strong> (con QR o envío de dinero) y <strong>Efectivo</strong> en mano al momento de recibir o retirar tu pedido.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECCIÓN FOOTER INFORMATIVA: MENDOZA
+       ========================================== -->
+  <section class="local-info-section">
+    <div class="local-card">
+      <h4>📍 Puntos de Encuentro</h4>
+      <p>Entregas coordinadas <strong>SIN COSTO</strong> en zonas céntricas y transitadas del Gran Mendoza para tu comodidad y seguridad.</p>
+    </div>
+    <div class="local-card">
+      <h4>🛵 Envíos a Domicilio</h4>
+      <p>Llegamos a la puerta de tu casa en toda el área metropolitana con cadetería rápida a costo accesible.</p>
+    </div>
+    <div class="local-card">
+      <h4>💳 Medios de Pago</h4>
+      <p>Transferencia bancaria, Mercado Pago o Efectivo contra entrega. Pagás al coordinar o recibir.</p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       BOTÓN FLOTANTE DE ASESORAMIENTO WHATSAPP
+       ========================================== -->
+  <a class="floating-wsp-help" target="_blank" href="https://wa.me/5492615653026?text=%C2%A1Hola!%20Tengo%20dudas%20sobre%20qu%C3%A9%20decant%20elegir,%20%C2%BFme%20pod%C3%A9s%20asesorar?">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.204 8.204 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.45c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.32z"/></svg>
+    💬 ¿Dudas? Asesorate
+  </a>
+
+  <!-- ==========================================
        BARRA FLOTANTE DE PEDIDO (CARRITO)
        ========================================== -->
   <div class="cart-bar" id="cartBar">
@@ -926,7 +1358,7 @@
         <span class="cart-badge-count" id="cartBadge">0</span>
       </div>
       <div class="cart-totals">
-        <span class="cart-label" id="cartLabelItems">0 perfumes</span>
+        <span class="cart-promo-hint" id="cartPromoHint">Agregá decants</span>
         <span class="cart-total-amount" id="cartTotal">Total: $0</span>
       </div>
     </div>
@@ -937,7 +1369,7 @@
   </div>
 
   <!-- ==========================================
-       MODAL DE RESUMEN DEL PEDIDO
+       MODAL DE RESUMEN DEL PEDIDO CON SELECTOR
        ========================================== -->
   <div class="cart-modal-overlay" id="cartModalOverlay" onclick="closeCartModal(event)">
     <div class="cart-modal" onclick="event.stopPropagation()">
@@ -946,15 +1378,43 @@
         <button class="cart-modal-close" onclick="closeCartModal()">&times;</button>
       </div>
 
+      <div class="modal-promo-alert" id="modalPromoAlert">
+        🎁 ¡Agregá 3 o más decants para activar el 10% OFF!
+      </div>
+
       <div class="cart-items-list" id="cartItemsList">
         <!-- Se llena dinámicamente -->
       </div>
 
       <div class="cart-modal-footer">
+        <!-- Selector de Entrega en Mendoza -->
+        <div class="delivery-options-box">
+          <div class="delivery-title">Entrega en Gran Mendoza:</div>
+          <label class="delivery-radio-label">
+            <input type="radio" name="deliveryMethod" value="Punto de encuentro sin costo" checked>
+            📍 Punto de encuentro (Sin costo)
+          </label>
+          <label class="delivery-radio-label">
+            <input type="radio" name="deliveryMethod" value="Envío a domicilio (mínimo extra)">
+            🛵 Envío a domicilio (mínimo extra)
+          </label>
+        </div>
+
+        <div class="cart-modal-totals-row" id="subtotalRow" style="display: none;">
+          <span>Subtotal:</span>
+          <span id="cartSubtotal" style="font-weight: 700;">$0</span>
+        </div>
+
+        <div class="cart-modal-totals-row" id="discountRow" style="display: none;">
+          <span class="discount-line">Descuento Promo Trío (10%):</span>
+          <span class="discount-line" id="cartDiscount">-$0</span>
+        </div>
+
         <div class="cart-modal-totals-row">
-          <span>Total Estimado:</span>
+          <span>Total Final:</span>
           <strong id="cartModalTotal">$0</strong>
         </div>
+
         <button class="btn-send-wsp-cart" onclick="sendOrderViaWhatsApp()">
           <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.204 8.204 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.45c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.32z"/></svg>
           Enviar Pedido por WhatsApp
@@ -970,7 +1430,7 @@
     const WHATSAPP_PHONE = "5492615653026";
 
     // ==========================================
-    // 2. CATÁLOGO CON OCASIONES Y PRECIOS
+    // 2. CATÁLOGO CON OCASIONES, ESTACIONES Y PRECIOS
     // ==========================================
     const perfumes = [
       {
@@ -978,11 +1438,12 @@
         name: "Lattafa The Kingdom",
         tag: "Árabe / Oriental",
         category: "Árabe",
+        season: "❄️ Otoño / Invierno",
         occasion: "🖤 Citas & Conquista Nocturna",
         inspiration: "Jean Paul Gaultier - Le Male Elixir",
         img: "kingdom.avif",
         notes: "Lavanda, Menta, Salvia, Vainilla, Tabaco y Haba Tonka.",
-        searchTerms: "lattafa the kingdom jpg jean paul gaultier le male elixir citas romance noche seduccion sensual calido",
+        searchTerms: "lattafa the kingdom jpg jean paul gaultier le male elixir citas romance noche seduccion invierno frio sensual calido",
         price5ml: "$7.500",
         price10ml: "$13.500"
       },
@@ -991,11 +1452,12 @@
         name: "Lattafa Qaed Al Fursan",
         tag: "Árabe / Frutal",
         category: "Árabe",
+        season: "🍂 Todo el año",
         occasion: "🔥 Imán de Cumplidos",
         inspiration: "Creed Aventus (Piña jugosa) / Black XS",
         img: "fursan.avif",
         notes: "Piña dulce jugosa, Azafrán, Jazmín, Bálsamo de abeto, Ámbar y Cedro.",
-        searchTerms: "lattafa qaed al fursan creed aventus black xs paco rabanne piña dulce salidas cumplidos fiesta",
+        searchTerms: "lattafa qaed al fursan creed aventus black xs paco rabanne piña dulce salidas cumplidos fiesta todo el año",
         price5ml: "$6.000",
         price10ml: "$10.500"
       },
@@ -1004,6 +1466,7 @@
         name: "Lattafa Ramz Silver",
         tag: "Árabe / Gourmand",
         category: "Dulce",
+        season: "❄️ Noches & Salidas",
         occasion: "💣 Fiesta & Clubbing",
         inspiration: "Jean Paul Gaultier - Ultra Male",
         img: "ramz.avif",
@@ -1017,6 +1480,7 @@
         name: "Sheikh Al Shuyukh Supreme",
         tag: "Árabe / Oriental Dulce",
         category: "Dulce",
+        season: "❄️ Invierno & Frío",
         occasion: "☕ Noches Frías / Gourmet",
         inspiration: "Lancôme Oud Bouquet / Chocolate Greedy",
         img: "sheikh.avif",
@@ -1030,11 +1494,12 @@
         name: "Lattafa Hayaati",
         tag: "Árabe / Versátil",
         category: "Árabe",
+        season: "☀️ Primavera / Verano",
         occasion: "⚡ Firma Diaria & Facultad",
         inspiration: "Paco Rabanne Invictus / Rasasi Hawas",
         img: "hayaati.avif",
         notes: "Manzana, Bergamota, Canela, Notas amaderadas, Vainilla y Almizcle.",
-        searchTerms: "lattafa hayaati paco rabanne invictus hawas rasasi diario versatil oficina facultad juvenil",
+        searchTerms: "lattafa hayaati paco rabanne invictus hawas rasasi diario versatil oficina facultad juvenil primavera calor verano",
         price5ml: "$6.000",
         price10ml: "$10.500"
       },
@@ -1043,11 +1508,12 @@
         name: "Afnan 9 AM Dive",
         tag: "Fresco / Acuático",
         category: "Fresco",
+        season: "☀️ Todo el año / Calor",
         occasion: "🌊 Todo Terreno / Alta Duración",
         inspiration: "Bleu de Chanel + YSL Y EDP (Híbrido Azul)",
         img: "9am.avif",
         notes: "Menta, Limón, Grosellas negras, Manzana, Incienso y Cedro.",
-        searchTerms: "afnan 9 am dive bleu de chanel ysl y edp acuatico menta duracion oficina versatil formal",
+        searchTerms: "afnan 9 am dive bleu de chanel ysl y edp acuatico menta duracion oficina versatil formal verano calor",
         price5ml: "$8.000",
         price10ml: "$14.500"
       },
@@ -1056,11 +1522,12 @@
         name: "Rave Rage",
         tag: "Amaderado / Aromático",
         category: "Amaderado",
+        season: "🍂 Otoño / Primavera",
         occasion: "🌙 Casual con Actitud",
         inspiration: "Hugo Boss Just Different / Dylan Blue",
         img: "rage.avif",
         notes: "Manzana, Menta, Fresia, Albahaca, Cilantro, Ládano, Incienso y Pachulí.",
-        searchTerms: "rave rage lattafa hugo boss just different dylan blue noche casual salidas amigos",
+        searchTerms: "rave rage lattafa hugo boss just different dylan blue noche casual salidas amigos entretiempo",
         price5ml: "$6.500",
         price10ml: "$11.500"
       },
@@ -1069,11 +1536,12 @@
         name: "Armaf Odyssey Limoni Fresh",
         tag: "Cítrico / Fresco",
         category: "Cítrico",
+        season: "☀️ Verano / Calor Intenso",
         occasion: "🍋 Verano & Oficina Elegante",
         inspiration: "Chanel Allure Homme Blanche / Dior Homme Cologne",
         img: "limoni.avif",
         notes: "Limón, Bergamota, Mandarina, Jengibre, Notas marinas y Ámbar.",
-        searchTerms: "armaf odyssey limoni fresh chanel allure homme blanche calor verano oficina trabajo limpio",
+        searchTerms: "armaf odyssey limoni fresh chanel allure homme blanche calor verano oficina trabajo limpio sol",
         price5ml: "$7.500",
         price10ml: "$13.500"
       },
@@ -1082,11 +1550,12 @@
         name: "Maison Alhambra Galactic Men",
         tag: "Oriental / Cálido",
         category: "Árabe",
+        season: "❄️ Otoño / Invierno",
         occasion: "🥃 Citas & Noches de Copas",
         inspiration: "Mugler A*Men Pure Havane / Spicebomb Extreme",
         img: "galactic.avif",
         notes: "Tabaco, Miel, Cacao, Vainilla, Pachulí y Sándalo.",
-        searchTerms: "maison alhambra galactic men mugler pure havane spicebomb extreme tabaco miel bar citas copas noche",
+        searchTerms: "maison alhambra galactic men mugler pure havane spicebomb extreme tabaco miel bar citas copas noche frio invierno",
         price5ml: "$7.500",
         price10ml: "$13.000"
       },
@@ -1095,11 +1564,12 @@
         name: "Natura Homem Tato",
         tag: "Amaderado Intenso",
         category: "Amaderado",
+        season: "❄️ Otoño / Invierno",
         occasion: "🖤 Seducción Pura & Misterio",
         inspiration: "Bvlgari Man in Black",
         img: "tato.avif",
         notes: "Cardamomo, Pimienta negra, Iris, Cuero, Sándalo y Cumarú.",
-        searchTerms: "natura homem tato bulgary bvlgari man in black cuero citas romance seduccion invierno noche intimo",
+        searchTerms: "natura homem tato bulgary bvlgari man in black cuero citas romance seduccion invierno noche intimo frio",
         price5ml: "$6.000",
         price10ml: "$10.500"
       },
@@ -1108,11 +1578,12 @@
         name: "Nautica Voyage",
         tag: "Fresco Diario",
         category: "Fresco",
+        season: "☀️ Primavera / Verano",
         occasion: "☀️ Gym, Calor Extremo & Diario",
         inspiration: "Perfume Original de Diseñador",
         img: "voyage.avif",
         notes: "Manzana verde, Hojas verdes, Loto, Mimosa, Almizcle y Cedro.",
-        searchTerms: "nautica voyage gym gimnasio deporte calor verano diario limpio fresco",
+        searchTerms: "nautica voyage gym gimnasio deporte calor verano diario limpio fresco sol pileta",
         price5ml: "$4.500",
         price10ml: "$8.000"
       },
@@ -1121,11 +1592,12 @@
         name: "Antonio Banderas Blue Seduction",
         tag: "Cítrico / Acuático",
         category: "Cítrico",
+        season: "☀️ Verano & Calor",
         occasion: "🏖️ Salidas Diurnas & Relax",
         inspiration: "Versace Man Eau Fraîche (Estilo similar)",
         img: "blue.avif",
         notes: "Melón, Bergamota, Menta, Grosellas, Capuchino y Notas marinas.",
-        searchTerms: "antonio banderas blue seduction versace man eau fraiche verano playa pileta calor diario",
+        searchTerms: "antonio banderas blue seduction versace man eau fraiche verano playa pileta calor diario sol",
         price5ml: "$4.500",
         price10ml: "$8.000"
       },
@@ -1134,11 +1606,12 @@
         name: "King of Seduction Absolute",
         tag: "Aromático Marino",
         category: "Fresco",
+        season: "☀️ Primavera / Verano",
         occasion: "🎯 Conquista Casual / Tarde-Noche",
         inspiration: "Paco Rabanne Invictus Aqua",
         img: "king.avif",
         notes: "Pomelo, Toronja, Notas marinas, Cardamomo, Lavanda y Cuero.",
-        searchTerms: "antonio banderas king of seduction absolute invictus aqua tarde noche citas casual",
+        searchTerms: "antonio banderas king of seduction absolute invictus aqua tarde noche citas casual verano primavera",
         price5ml: "$4.500",
         price10ml: "$8.000"
       },
@@ -1147,11 +1620,12 @@
         name: "King of Seduction Summerland",
         tag: "Verano / Frutal",
         category: "Fresco",
+        season: "☀️ Verano & Playa",
         occasion: "🍹 Vacaciones, Pileta & Playa",
         inspiration: "Jean Paul Gaultier Le Beau / Invictus",
         img: "summerland.avif",
         notes: "Piña, Melón, Bergamota, Notas oceánicas, Cedro y Ámbar.",
-        searchTerms: "antonio banderas king of seduction summerland vacaciones verano pileta calor piña frutal",
+        searchTerms: "antonio banderas king of seduction summerland vacaciones verano pileta calor piña frutal playa",
         price5ml: "$4.500",
         price10ml: "$8.000"
       },
@@ -1160,11 +1634,12 @@
         name: "The Secret Absolu",
         tag: "Oriental / Cálido",
         category: "Dulce",
+        season: "❄️ Otoño / Invierno",
         occasion: "🍸 Cena Romántica & Elegancia",
         inspiration: "Paco Rabanne 1 Million Privé / Tom Ford",
         img: "secret-absolu.avif",
         notes: "Manzana verde, Cardamomo, Jengibre, Lavanda, Azafrán, Gamuza, Coñac y Ámbar.",
-        searchTerms: "antonio banderas the secret absolu cena citas elegante noche romance coñac licor",
+        searchTerms: "antonio banderas the secret absolu cena citas elegante noche romance coñac licor frio invierno",
         price5ml: "$5.000",
         price10ml: "$9.000"
       },
@@ -1173,11 +1648,12 @@
         name: "Kenzo Homme EDP Intense",
         tag: "Acuático Amaderado",
         category: "Amaderado",
+        season: "🍂 Todo el año",
         occasion: "👑 Proyección Nuclear & Distinción",
         inspiration: "Creación Original (Quentin Bisch)",
         img: "kenzo.avif",
         notes: "Notas marinas, Pimienta rosa, Madera de higuera, Vetiver y Madera de Akigala.",
-        searchTerms: "kenzo homme edp intense quentin bisch bestia duracion firma elegante nicho unico cumplidos",
+        searchTerms: "kenzo homme edp intense quentin bisch bestia duracion firma elegante nicho unico cumplidos todo el año",
         price5ml: "$12.500",
         price10ml: "$22.000"
       }
@@ -1185,6 +1661,7 @@
 
     const selectedSizes = {};
     let activeCategory = 'all';
+    let currentSort = 'default';
     let cart = [];
 
     perfumes.forEach(p => {
@@ -1196,24 +1673,35 @@
     }
 
     function formatPrice(num) {
-      return '$' + num.toLocaleString('es-AR');
+      return '$' + Math.round(num).toLocaleString('es-AR');
     }
 
     // ==========================================
-    // 3. RENDERIZADO
+    // 3. RENDERIZADO Y ORDENACIÓN
     // ==========================================
     function renderCards() {
       const grid = document.getElementById('perfumeGrid');
       const existingCards = grid.querySelectorAll('.card');
       existingCards.forEach(c => c.remove());
 
-      perfumes.forEach(p => {
+      // Clonar perfumes para ordenarlos sin romper el orden original
+      let displayPerfumes = [...perfumes];
+
+      if (currentSort === 'price-asc') {
+        displayPerfumes.sort((a, b) => parsePrice(a.price5ml) - parsePrice(b.price5ml));
+      } else if (currentSort === 'price-desc') {
+        displayPerfumes.sort((a, b) => parsePrice(b.price5ml) - parsePrice(a.price5ml));
+      } else if (currentSort === 'name-asc') {
+        displayPerfumes.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      displayPerfumes.forEach(p => {
         const currentSize = selectedSizes[p.id];
         const card = document.createElement('div');
         card.className = 'card';
         card.id = `card-${p.id}`;
         card.setAttribute('data-category', p.category);
-        card.setAttribute('data-search', `${p.name} ${p.inspiration} ${p.occasion} ${p.searchTerms}`.toLowerCase());
+        card.setAttribute('data-search', `${p.name} ${p.inspiration} ${p.occasion} ${p.season} ${p.searchTerms}`.toLowerCase());
 
         card.innerHTML = `
           <div>
@@ -1221,7 +1709,10 @@
               <span class="vibe-tag">${p.occasion}</span>
               <img src="${p.img}" alt="${p.name}" class="perfume-img" loading="lazy" onerror="this.src='https://via.placeholder.com/220x220?text=Perfume'">
             </div>
-            <span class="badge-family">${p.tag}</span>
+            <div class="tags-row">
+              <span class="badge-family">${p.tag}</span>
+              <span class="badge-season">${p.season}</span>
+            </div>
             <h3>${p.name}</h3>
             
             <div class="inspiration-box">
@@ -1260,8 +1751,13 @@
       applyFilters();
     }
 
+    function handleSort() {
+      currentSort = document.getElementById('sortSelect').value;
+      renderCards();
+    }
+
     // ==========================================
-    // 4. CARRITO DE COMPRAS & WHATSAPP
+    // 4. CARRITO DE COMPRAS & PROMO TRÍO
     // ==========================================
     function addToCart(perfumeId) {
       const perfume = perfumes.find(p => p.id === perfumeId);
@@ -1305,19 +1801,36 @@
       }
     }
 
+    function calculateTotals() {
+      const subtotal = cart.reduce((acc, item) => acc + item.priceNum, 0);
+      const isPromoActive = cart.length >= 3;
+      const discount = isPromoActive ? subtotal * 0.10 : 0;
+      const total = subtotal - discount;
+      return { subtotal, discount, total, isPromoActive };
+    }
+
     function updateCartUI() {
       const cartBar = document.getElementById('cartBar');
       const badge = document.getElementById('cartBadge');
-      const label = document.getElementById('cartLabelItems');
+      const promoHint = document.getElementById('cartPromoHint');
       const totalEl = document.getElementById('cartTotal');
 
       const count = cart.length;
       if (count > 0) {
         cartBar.classList.add('visible');
         badge.textContent = count;
-        label.textContent = `${count} ${count === 1 ? 'decant' : 'decants'}`;
         
-        const total = cart.reduce((acc, item) => acc + item.priceNum, 0);
+        const { subtotal, discount, total, isPromoActive } = calculateTotals();
+
+        if (isPromoActive) {
+          promoHint.textContent = `🎉 ¡Promo Trío Activada! (10% OFF)`;
+          promoHint.style.color = "#16a34a";
+        } else {
+          const missing = 3 - count;
+          promoHint.textContent = `Agregá ${missing} más para 10% OFF`;
+          promoHint.style.color = "var(--gold-dark)";
+        }
+
         totalEl.textContent = `Total: ${formatPrice(total)}`;
       } else {
         cartBar.classList.remove('visible');
@@ -1336,18 +1849,41 @@
     function renderCartModalItems() {
       const list = document.getElementById('cartItemsList');
       const modalTotal = document.getElementById('cartModalTotal');
+      const alertEl = document.getElementById('modalPromoAlert');
+      const subtotalRow = document.getElementById('subtotalRow');
+      const discountRow = document.getElementById('discountRow');
+      const subtotalEl = document.getElementById('cartSubtotal');
+      const discountEl = document.getElementById('cartDiscount');
 
       if (cart.length === 0) {
-        list.innerHTML = `<div class="cart-empty-text">Tu selección está vacía.<br>¡Agrega fragancias del catálogo para armar tu pedido!</div>`;
+        list.innerHTML = `<div class="cart-empty-text">Tu selección está vacía.<br>¡Agrega fragancias para armar tu pedido!</div>`;
         modalTotal.textContent = "$0";
+        alertEl.style.display = "none";
+        subtotalRow.style.display = "none";
+        discountRow.style.display = "none";
         return;
       }
 
-      let html = "";
-      let total = 0;
+      const { subtotal, discount, total, isPromoActive } = calculateTotals();
 
+      if (isPromoActive) {
+        alertEl.innerHTML = `🎉 <strong>¡Promo Trío aplicada!</strong> Tienes un 10% de descuento en tu compra.`;
+        alertEl.style.color = "#16a34a";
+        subtotalRow.style.display = "flex";
+        discountRow.style.display = "flex";
+        subtotalEl.textContent = formatPrice(subtotal);
+        discountEl.textContent = `-${formatPrice(discount)}`;
+      } else {
+        const missing = 3 - cart.length;
+        alertEl.innerHTML = `🎁 Agregá <strong>${missing} ${missing === 1 ? 'decant más' : 'decants más'}</strong> y activás 10% OFF en todo tu pedido.`;
+        alertEl.style.color = "var(--gold-dark)";
+        subtotalRow.style.display = "none";
+        discountRow.style.display = "none";
+      }
+      alertEl.style.display = "flex";
+
+      let html = "";
       cart.forEach(item => {
-        total += item.priceNum;
         html += `
           <div class="cart-item">
             <div>
@@ -1369,15 +1905,23 @@
     function sendOrderViaWhatsApp() {
       if (cart.length === 0) return;
 
-      let msg = "¡Hola! Quiero hacer el siguiente pedido de decants:\n";
-      let total = 0;
+      const { subtotal, discount, total, isPromoActive } = calculateTotals();
+      
+      const deliveryMethodEl = document.querySelector('input[name="deliveryMethod"]:checked');
+      const deliveryMethod = deliveryMethodEl ? deliveryMethodEl.value : "Punto de encuentro sin costo";
+
+      let msg = "¡Hola! Quiero hacer el siguiente pedido de decants:\n\n";
 
       cart.forEach((item) => {
-        total += item.priceNum;
         msg += `• 1x ${item.name} (${item.size}) - ${item.priceStr}\n`;
       });
 
-      msg += `\nTotal estimado: ${formatPrice(total)}\n`;
+      msg += `\nSubtotal: ${formatPrice(subtotal)}\n`;
+      if (isPromoActive) {
+        msg += `🔥 Descuento Promo Trío (10%): -${formatPrice(discount)}\n`;
+      }
+      msg += `*Total final: ${formatPrice(total)}*\n\n`;
+      msg += `📍 *Entrega elegida:* ${deliveryMethod}\n\n`;
       msg += "¿Me confirmas disponibilidad y datos para transferir?";
 
       const encodedMsg = encodeURIComponent(msg);
@@ -1385,7 +1929,7 @@
     }
 
     function buildSingleWhatsAppLink(perfumeName, size) {
-      const text = encodeURIComponent(`¡Hola! Quiero pedir un decant de ${size} de ${perfumeName}.`);
+      const text = encodeURIComponent(`¡Hola! Quiero pedir un decant de ${size} de ${perfumeName} para entregar en Gran Mendoza.`);
       return `https://wa.me/${WHATSAPP_PHONE}?text=${text}`;
     }
 
