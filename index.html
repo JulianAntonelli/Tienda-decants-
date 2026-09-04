@@ -84,7 +84,7 @@
     .search-box {
       position: relative;
       width: 100%;
-      max-width: 500px;
+      max-width: 540px;
     }
 
     .search-box input {
@@ -224,20 +224,42 @@
       letter-spacing: 0.6px;
       padding: 4px 9px;
       border-radius: 6px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       border: 1px solid rgba(56, 189, 248, 0.2);
     }
 
     .card h3 {
       font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       color: #ffffff;
       line-height: 1.3;
     }
 
+    /* Caja destacada de Inspiración Olfativa */
+    .inspiration-box {
+      background: rgba(56, 189, 248, 0.07);
+      border-left: 3px solid var(--accent);
+      padding: 6px 10px;
+      border-radius: 4px 8px 8px 4px;
+      margin-bottom: 10px;
+      font-size: 0.8rem;
+      color: #e2e8f0;
+      line-height: 1.35;
+    }
+
+    .inspiration-label {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      display: block;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
     .notes {
-      font-size: 0.83rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       margin-bottom: 16px;
       line-height: 1.45;
@@ -355,12 +377,12 @@
   <header>
     <span class="brand-tag">Fraccionados Originales</span>
     <h1>Decants de Perfumes</h1>
-    <p class="subtitle">Descubre fragancias exclusivas en atomizadores de vidrio de alta calidad de 5 ml y 10 ml.</p>
+    <p class="subtitle">Fragancias exclusivas e inspiraciones de nicho en atomizadores de vidrio de 5 ml y 10 ml.</p>
   </header>
 
   <div class="controls-container">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar por perfume, marca o notas..." oninput="handleSearch()">
+      <input type="text" id="searchInput" placeholder="Buscar por perfume, notas o inspiración (ej: Bvlgari, Ultra Male, Invictus)..." oninput="handleSearch()">
       <button class="search-clear" id="clearBtn" onclick="clearSearch()" title="Limpiar búsqueda">&times;</button>
     </div>
 
@@ -380,7 +402,7 @@
   <div class="grid" id="perfumeGrid">
     <div class="no-results" id="noResults">
       <h4>No se encontraron perfumes</h4>
-      <p>Prueba con otros términos de búsqueda o selecciona otra categoría.</p>
+      <p>Prueba buscando por marca de inspiración (ej: Bvlgari, Le Male, Chanel) o cambia de categoría.</p>
     </div>
   </div>
 
@@ -388,209 +410,218 @@
     // ==========================================
     // 1. CONFIGURACIÓN GENERAL
     // ==========================================
-    // Coloca aquí tu número con código de país (sin '+' ni espacios). Ej: 5491112345678
-    const WHATSAPP_PHONE = "NUMERODETELEFONO";
+    const WHATSAPP_PHONE = "5492615653026";
 
     // ==========================================
-    // 2. LISTADO DE PERFUMES
+    // 2. LISTADO DE PERFUMES CON INSPIRACIONES
     // ==========================================
-    // Puedes editar precios, notas o agregar nuevos fácilmente aquí
     const perfumes = [
       {
         id: "kingdom",
         name: "Lattafa The Kingdom",
         tag: "Árabe / Oriental",
         category: "Árabe",
+        inspiration: "Jean Paul Gaultier - Le Male Elixir",
         img: "kingdom.avif",
         notes: "Lavanda, Menta, Salvia, Vainilla, Tabaco y Haba Tonka.",
-        searchTerms: "lattafa the kingdom oriental vainilla menta lavanda arabe",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "lattafa the kingdom jpg jean paul gaultier le male elixir vainilla tabaco arabe",
+        price5ml: "$7.500",
+        price10ml: "$13.500"
       },
       {
         id: "fursan",
         name: "Lattafa Qaed Al Fursan",
         tag: "Árabe / Frutal",
         category: "Árabe",
+        inspiration: "Creed Aventus (Giro de piña jugosa) / Black XS",
         img: "fursan.avif",
         notes: "Piña dulce jugosa, Azafrán, Jazmín, Bálsamo de abeto, Ámbar y Cedro.",
-        searchTerms: "lattafa qaed al fursan piña amaderado dulce arabe frutal",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "lattafa qaed al fursan creed aventus black xs paco rabanne piña dulce arabe",
+        price5ml: "$6.000",
+        price10ml: "$10.500"
       },
       {
         id: "ramz",
         name: "Lattafa Ramz Silver",
         tag: "Árabe / Gourmand",
         category: "Dulce",
+        inspiration: "Jean Paul Gaultier - Ultra Male",
         img: "ramz.avif",
         notes: "Pera, Lavanda, Bergamota, Menta, Vainilla, Cardamomo y Pachulí.",
-        searchTerms: "lattafa ramz silver dulce vainilla pera lavanda gourmand arabe",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "lattafa ramz silver jpg jean paul gaultier ultra male afnan 9pm pera vainilla",
+        price5ml: "$6.000",
+        price10ml: "$10.500"
       },
       {
         id: "sheikh",
         name: "Sheikh Al Shuyukh Supreme",
         tag: "Árabe / Oriental Dulce",
         category: "Dulce",
+        inspiration: "Lancôme Oud Bouquet / Chocolate Greedy",
         img: "sheikh.avif",
         notes: "Canela, Cardamomo, Chocolate negro, Vainilla, Ámbar y Cedro.",
-        searchTerms: "lattafa sheikh al shuyukh supreme chocolate vainilla canela oriental dulce",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "lattafa sheikh al shuyukh supreme lancome oud bouquet montale chocolate greedy canela dulce",
+        price5ml: "$6.500",
+        price10ml: "$11.500"
       },
       {
         id: "hayaati",
         name: "Lattafa Hayaati",
         tag: "Árabe / Versátil",
         category: "Árabe",
+        inspiration: "Paco Rabanne Invictus / Rasasi Hawas",
         img: "hayaati.avif",
         notes: "Manzana, Bergamota, Canela, Notas amaderadas, Vainilla y Almizcle.",
-        searchTerms: "lattafa hayaati marino frutal fresco manzana versatil arabe",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "lattafa hayaati paco rabanne invictus hawas rasasi manzana versatil",
+        price5ml: "$6.000",
+        price10ml: "$10.500"
       },
       {
         id: "9am",
         name: "Afnan 9 AM Dive",
         tag: "Fresco / Acuático",
         category: "Fresco",
+        inspiration: "Bleu de Chanel + YSL Y EDP (Híbrido Azul)",
         img: "9am.avif",
         notes: "Menta, Limón, Grosellas negras, Manzana, Incienso y Cedro.",
-        searchTerms: "afnan 9 am dive acuatico fresco menta citrico",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "afnan 9 am dive bleu de chanel ysl y edp yves saint laurent acuatico menta",
+        price5ml: "$8.000",
+        price10ml: "$14.500"
       },
       {
         id: "rage",
         name: "Rave Rage",
         tag: "Amaderado / Aromático",
         category: "Amaderado",
+        inspiration: "Hugo Boss Just Different / Dylan Blue",
         img: "rage.avif",
         notes: "Manzana, Menta, Fresia, Albahaca, Cilantro, Ládano, Incienso y Pachulí.",
-        searchTerms: "rave rage lattafa manzana menta albahaca incienso amaderado",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "rave rage lattafa hugo boss just different versace dylan blue menta incienso",
+        price5ml: "$6.500",
+        price10ml: "$11.500"
       },
       {
         id: "limoni",
         name: "Armaf Odyssey Limoni Fresh",
         tag: "Cítrico / Fresco",
         category: "Cítrico",
+        inspiration: "Chanel Allure Homme Blanche / Dior Homme Cologne",
         img: "limoni.avif",
         notes: "Limón, Bergamota, Mandarina, Jengibre, Notas marinas y Ámbar.",
-        searchTerms: "armaf odyssey limoni fresh citrico limon jengibre",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "armaf odyssey limoni fresh chanel allure homme blanche dior homme cologne limon citrico",
+        price5ml: "$7.500",
+        price10ml: "$13.500"
       },
       {
         id: "galactic",
         name: "Maison Alhambra Galactic Men",
         tag: "Oriental / Cálido",
         category: "Árabe",
+        inspiration: "Mugler A*Men Pure Havane / Spicebomb Extreme",
         img: "galactic.avif",
         notes: "Tabaco, Miel, Cacao, Vainilla, Pachulí y Sándalo.",
-        searchTerms: "maison alhambra galactic men intense tabaco miel vainilla cacao calido",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
-      },
-      {
-        id: "voyage",
-        name: "Nautica Voyage",
-        tag: "Fresco Diario",
-        category: "Fresco",
-        img: "voyage.avif",
-        notes: "Manzana verde, Hojas verdes, Loto, Mimosa, Almizcle y Cedro.",
-        searchTerms: "nautica voyage acuatico manzana verde marino fresco",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
-      },
-      {
-        id: "blue",
-        name: "Antonio Banderas Blue Seduction",
-        tag: "Cítrico / Acuático",
-        category: "Cítrico",
-        img: "blue.avif",
-        notes: "Melón, Bergamota, Menta, Grosellas, Capuchino y Notas marinas.",
-        searchTerms: "antonio banderas blue seduction acuatico melon citrico",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
-      },
-      {
-        id: "king",
-        name: "King of Seduction Absolute",
-        tag: "Aromático Marino",
-        category: "Fresco",
-        img: "king.avif",
-        notes: "Pomelo, Toronja, Notas marinas, Cardamomo, Lavanda y Cuero.",
-        searchTerms: "antonio banderas king of seduction absolute marino pomelo cuero",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
-      },
-      {
-        id: "summerland",
-        name: "King of Seduction Summerland",
-        tag: "Verano / Frutal",
-        category: "Fresco",
-        img: "summerland.avif",
-        notes: "Piña, Melón, Bergamota, Notas oceánicas, Cedro y Ámbar.",
-        searchTerms: "antonio banderas king of seduction summerland frutal fresco verano",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
-      },
-      {
-        id: "secret",
-        name: "The Secret Absolu",
-        tag: "Oriental / Cálido",
-        category: "Dulce",
-        img: "secret-absolu.avif",
-        notes: "Manzana verde, Cardamomo, Jengibre, Lavanda, Azafrán, Gamuza, Coñac y Ámbar.",
-        searchTerms: "antonio banderas the secret absolu coñac gamuza ambar cardamomo",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "maison alhambra galactic men mugler pure havane viktor rolf spicebomb extreme tabaco miel",
+        price5ml: "$7.500",
+        price10ml: "$13.000"
       },
       {
         id: "tato",
         name: "Natura Homem Tato",
         tag: "Amaderado Intenso",
         category: "Amaderado",
+        inspiration: "Bvlgari Man in Black",
         img: "tato.avif",
         notes: "Cardamomo, Pimienta negra, Iris, Cuero, Sándalo y Cumarú.",
-        searchTerms: "natura homem tato cuero amaderado cardamomo",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "natura homem tato bulgary bvlgari man in black cuero cardamomo amaderado",
+        price5ml: "$6.000",
+        price10ml: "$10.500"
+      },
+      {
+        id: "voyage",
+        name: "Nautica Voyage",
+        tag: "Fresco Diario",
+        category: "Fresco",
+        inspiration: "Perfume Original de Diseñador",
+        img: "voyage.avif",
+        notes: "Manzana verde, Hojas verdes, Loto, Mimosa, Almizcle y Cedro.",
+        searchTerms: "nautica voyage acuatico manzana verde marino fresco diseno original",
+        price5ml: "$4.500",
+        price10ml: "$8.000"
+      },
+      {
+        id: "blue",
+        name: "Antonio Banderas Blue Seduction",
+        tag: "Cítrico / Acuático",
+        category: "Cítrico",
+        inspiration: "Versace Man Eau Fraîche (Estilo similar)",
+        img: "blue.avif",
+        notes: "Melón, Bergamota, Menta, Grosellas, Capuchino y Notas marinas.",
+        searchTerms: "antonio banderas blue seduction versace man eau fraiche acuatico melon citrico",
+        price5ml: "$4.500",
+        price10ml: "$8.000"
+      },
+      {
+        id: "king",
+        name: "King of Seduction Absolute",
+        tag: "Aromático Marino",
+        category: "Fresco",
+        inspiration: "Paco Rabanne Invictus Aqua",
+        img: "king.avif",
+        notes: "Pomelo, Toronja, Notas marinas, Cardamomo, Lavanda y Cuero.",
+        searchTerms: "antonio banderas king of seduction absolute paco rabanne invictus aqua marino pomelo",
+        price5ml: "$4.500",
+        price10ml: "$8.000"
+      },
+      {
+        id: "summerland",
+        name: "King of Seduction Summerland",
+        tag: "Verano / Frutal",
+        category: "Fresco",
+        inspiration: "Jean Paul Gaultier Le Beau / Invictus",
+        img: "summerland.avif",
+        notes: "Piña, Melón, Bergamota, Notas oceánicas, Cedro y Ámbar.",
+        searchTerms: "antonio banderas king of seduction summerland jpg le beau invictus piña frutal verano",
+        price5ml: "$4.500",
+        price10ml: "$8.000"
+      },
+      {
+        id: "secret",
+        name: "The Secret Absolu",
+        tag: "Oriental / Cálido",
+        category: "Dulce",
+        inspiration: "Paco Rabanne 1 Million Privé / Tom Ford",
+        img: "secret-absolu.avif",
+        notes: "Manzana verde, Cardamomo, Jengibre, Lavanda, Azafrán, Gamuza, Coñac y Ámbar.",
+        searchTerms: "antonio banderas the secret absolu paco rabanne 1 million prive one million tom ford coñac licor",
+        price5ml: "$5.000",
+        price10ml: "$9.000"
       },
       {
         id: "kenzo",
         name: "Kenzo Homme EDP Intense",
         tag: "Acuático Amaderado",
         category: "Amaderado",
+        inspiration: "Perfume Original (Creación Quentin Bisch)",
         img: "kenzo.avif",
         notes: "Notas marinas, Pimienta rosa, Madera de higuera, Vetiver y Madera de Akigala.",
-        searchTerms: "kenzo homme edp intense marino amaderado higo acuatico",
-        price5ml: "$X.XXX",
-        price10ml: "$X.XXX"
+        searchTerms: "kenzo homme edp intense quentin bisch nicho importado marino amaderado higo",
+        price5ml: "$12.500",
+        price10ml: "$22.000"
       }
     ];
 
-    // Guarda la medida seleccionada de cada perfume (por defecto '5ml')
     const selectedSizes = {};
     let activeCategory = 'all';
 
-    // Inicializar tamaños por defecto
     perfumes.forEach(p => {
       selectedSizes[p.id] = '5ml';
     });
 
     // ==========================================
-    // 3. RENDERIZADO DE TARJETAS
+    // 3. RENDERIZADO
     // ==========================================
     function renderCards() {
       const grid = document.getElementById('perfumeGrid');
-      const noResults = document.getElementById('noResults');
-      
-      // Eliminar tarjetas previas preservando el contenedor de "no-results"
       const existingCards = grid.querySelectorAll('.card');
       existingCards.forEach(c => c.remove());
 
@@ -600,7 +631,7 @@
         card.className = 'card';
         card.id = `card-${p.id}`;
         card.setAttribute('data-category', p.category);
-        card.setAttribute('data-search', `${p.name} ${p.searchTerms}`.toLowerCase());
+        card.setAttribute('data-search', `${p.name} ${p.inspiration} ${p.searchTerms}`.toLowerCase());
 
         card.innerHTML = `
           <div>
@@ -609,6 +640,12 @@
             </div>
             <span class="badge">${p.tag}</span>
             <h3>${p.name}</h3>
+            
+            <div class="inspiration-box">
+              <span class="inspiration-label">Inspirado en</span>
+              ${p.inspiration}
+            </div>
+
             <p class="notes"><strong>Notas:</strong> ${p.notes}</p>
           </div>
           <div>
@@ -636,7 +673,7 @@
     }
 
     // ==========================================
-    // 4. LÓGICA DE INTERACCIÓN Y ENLACES
+    // 4. INTERACCIÓN Y ENLACES WHATSAPP
     // ==========================================
     function buildWhatsAppLink(perfumeName, size) {
       const text = encodeURIComponent(`¡Hola! Quiero pedir un decant de ${size} de ${perfumeName}.`);
@@ -648,14 +685,12 @@
       const card = document.getElementById(`card-${perfumeId}`);
       if (!card) return;
 
-      // Actualizar estilos de los botones de medida
       const options = card.querySelectorAll('.size-option');
       options.forEach(opt => {
         const isSelected = opt.querySelector('.size-label').textContent.includes(size);
         opt.classList.toggle('selected', isSelected);
       });
 
-      // Actualizar enlace de WhatsApp
       const perfume = perfumes.find(p => p.id === perfumeId);
       const wspBtn = document.getElementById(`wsp-${perfumeId}`);
       if (wspBtn && perfume) {
@@ -664,7 +699,7 @@
     }
 
     // ==========================================
-    // 5. BÚSQUEDA Y FILTRADO COMBINADO
+    // 5. BÚSQUEDA Y FILTRADO
     // ==========================================
     function handleSearch() {
       const query = document.getElementById('searchInput').value.trim();
@@ -708,16 +743,13 @@
         }
       });
 
-      // Mensaje de Sin Resultados
       const noResults = document.getElementById('noResults');
       noResults.style.display = visibleCount === 0 ? 'block' : 'none';
 
-      // Contador de resultados
       const countEl = document.getElementById('resultsCount');
       countEl.textContent = `Mostrando ${visibleCount} de ${perfumes.length} fragancias`;
     }
 
-    // Arrancar la aplicación
     document.addEventListener('DOMContentLoaded', renderCards);
   </script>
 
