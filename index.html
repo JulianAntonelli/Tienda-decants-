@@ -59,7 +59,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
       max-width: 720px;
       position: relative;
     }
@@ -97,6 +97,98 @@
       font-weight: 300;
       max-width: 600px;
       margin: 0 auto;
+    }
+
+    /* ==========================================
+       BLOQUE EXPLICATIVO: ¿POR QUÉ DECANTS?
+       ========================================== */
+    .guide-section {
+      width: 100%;
+      max-width: 1200px;
+      background: rgba(13, 17, 26, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 20px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .guide-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .guide-header span {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .guide-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.35rem;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .guide-card {
+      background: rgba(6, 7, 10, 0.6);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 16px 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      transition: border-color 0.25s ease;
+    }
+
+    .guide-card:hover {
+      border-color: rgba(212, 175, 55, 0.35);
+    }
+
+    .guide-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      padding: 10px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .guide-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+
+    .guide-text p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .guide-text strong {
+      color: #ffffff;
+    }
+
+    .guide-text em {
+      color: var(--price-color);
+      font-style: normal;
+      font-weight: 600;
     }
 
     /* Buscador y Controles */
@@ -473,6 +565,48 @@
     <h1>Decants de Perfumes</h1>
     <p class="subtitle">Fraccionados 100% auténticos e inspiraciones de autor en atomizadores de vidrio de 5 ml y 10 ml.</p>
   </header>
+
+  <!-- ==========================================
+       BLOQUE GUÍA & RENDIMIENTO
+       ========================================== -->
+  <section class="guide-section">
+    <div class="guide-header">
+      <span>Guía del Coleccionista</span>
+      <h2>¿Por qué elegir decants fraccionados?</h2>
+    </div>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <div class="guide-icon">⏳</div>
+        <div class="guide-text">
+          <h4>Rendimiento Real</h4>
+          <p>
+            <strong>5 ml:</strong> ~75 atomizaciones <em>(1 mes de uso diario)</em>.<br>
+            <strong>10 ml:</strong> ~150 atomizaciones <em>(2 a 3 meses de rotación)</em>.
+          </p>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-icon">🛡️</div>
+        <div class="guide-text">
+          <h4>Frascos de Vidrio & Sellado</h4>
+          <p>
+            Envasados en <strong>vidrio grueso</strong> con atomizador spray de niebla fina y sellado hermético para conservar al 100% las notas y evitar evaporación.
+          </p>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-icon">💎</div>
+        <div class="guide-text">
+          <h4>Compra Inteligente</h4>
+          <p>
+            Prueba cómo evoluciona la fragancia en tu <strong>propia piel durante días</strong> antes de invertir en botellas de \$60.000 a \$180.000.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="controls-container">
     <div class="search-box">
